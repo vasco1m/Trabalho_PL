@@ -3,900 +3,600 @@
 		"id_aluno": "a1",
 		"nome": "Aysha Melanie Gilberto",
 		"curso": "LEI",
-		"tpc1": "12",
-		"tpc2": "8",
-		"tpc3": "19",
-		"tpc4": "8"
+		"notas": "11.75"
 	},
 	{
 		"id_aluno": "a2",
 		"nome": "Igor André Cantanhede",
 		"curso": "ENGFIS",
-		"tpc1": "12",
-		"tpc2": "16",
-		"tpc3": "18",
-		"tpc4": "20"
+		"notas": "16.5"
 	},
 	{
 		"id_aluno": "a3",
 		"nome": "Laurénio Narciso",
 		"curso": "ENGFIS",
-		"tpc1": "8",
-		"tpc2": "14",
-		"tpc3": "15",
-		"tpc4": "14"
+		"notas": "12.75"
 	},
 	{
 		"id_aluno": "a4",
 		"nome": "Jasnoor Casegas",
 		"curso": "LCC",
-		"tpc1": "14",
-		"tpc2": "20",
-		"tpc3": "17",
-		"tpc4": "11"
+		"notas": "15.5"
 	},
 	{
 		"id_aluno": "a5",
 		"nome": "Tawseef Rebouças",
 		"curso": "ENGBIOM",
-		"tpc1": "13",
-		"tpc2": "14",
-		"tpc3": "13",
-		"tpc4": "17"
+		"notas": "14.25"
 	},
 	{
 		"id_aluno": "a6",
 		"nome": "Eryk Clementino",
 		"curso": "LEI",
-		"tpc1": "10",
-		"tpc2": "19",
-		"tpc3": "11",
-		"tpc4": "14"
+		"notas": "13.5"
 	},
 	{
 		"id_aluno": "a7",
 		"nome": "Ianna Noivo",
 		"curso": "ENGBIOM",
-		"tpc1": "15",
-		"tpc2": "15",
-		"tpc3": "17",
-		"tpc4": "16"
+		"notas": "15.75"
 	},
 	{
 		"id_aluno": "a8",
 		"nome": "Ayla Thaissa Reina",
 		"curso": "ENGBIOM",
-		"tpc1": "12",
-		"tpc2": "8",
-		"tpc3": "8",
-		"tpc4": "18"
+		"notas": "11.5"
 	},
 	{
 		"id_aluno": "a9",
 		"nome": "Cássia Viviane Coitã",
 		"curso": "ENGFIS",
-		"tpc1": "19",
-		"tpc2": "9",
-		"tpc3": "14",
-		"tpc4": "10"
+		"notas": "13.0"
 	},
 	{
 		"id_aluno": "a10",
 		"nome": "Koby Vindima",
 		"curso": "LEI",
-		"tpc1": "9",
-		"tpc2": "14",
-		"tpc3": "20",
-		"tpc4": "13"
+		"notas": "14.0"
 	},
 	{
 		"id_aluno": "a11",
 		"nome": "Gustavo Martim Hernandez",
 		"curso": "ENGBIOM",
-		"tpc1": "11",
-		"tpc2": "8",
-		"tpc3": "14",
-		"tpc4": "11"
+		"notas": "11.0"
 	},
 	{
 		"id_aluno": "a12",
 		"nome": "Siddarta Beiriz",
 		"curso": "LEI",
-		"tpc1": "17",
-		"tpc2": "10",
-		"tpc3": "16",
-		"tpc4": "16"
+		"notas": "14.75"
 	},
 	{
 		"id_aluno": "a13",
 		"nome": "Daniela Patrícia Montes",
 		"curso": "ENGBIOM",
-		"tpc1": "15",
-		"tpc2": "15",
-		"tpc3": "18",
-		"tpc4": "19"
+		"notas": "16.75"
 	},
 	{
 		"id_aluno": "a14",
 		"nome": "Kaylla Pessego",
 		"curso": "LCC",
-		"tpc1": "10",
-		"tpc2": "14",
-		"tpc3": "17",
-		"tpc4": "15"
+		"notas": "14.0"
 	},
 	{
 		"id_aluno": "a15",
 		"nome": "Bianca Cristina Primitivo",
 		"curso": "ENGBIOM",
-		"tpc1": "16",
-		"tpc2": "9",
-		"tpc3": "18",
-		"tpc4": "10"
+		"notas": "13.25"
 	},
 	{
 		"id_aluno": "a16",
 		"nome": "Magna Galhardo",
 		"curso": "ENGFIS",
-		"tpc1": "20",
-		"tpc2": "18",
-		"tpc3": "9",
-		"tpc4": "14"
+		"notas": "15.25"
 	},
 	{
 		"id_aluno": "a17",
 		"nome": "Grace Isabel Patriarca",
 		"curso": "LCC",
-		"tpc1": "19",
-		"tpc2": "13",
-		"tpc3": "9",
-		"tpc4": "10"
+		"notas": "12.75"
 	},
 	{
 		"id_aluno": "a18",
 		"nome": "Saubhagya Buco",
 		"curso": "LEI",
-		"tpc1": "18",
-		"tpc2": "18",
-		"tpc3": "17",
-		"tpc4": "8"
+		"notas": "15.25"
 	},
 	{
 		"id_aluno": "a19",
 		"nome": "Ivo Vicente Boisa",
 		"curso": "ENGBIOM",
-		"tpc1": "14",
-		"tpc2": "10",
-		"tpc3": "18",
-		"tpc4": "13"
+		"notas": "13.75"
 	},
 	{
 		"id_aluno": "a20",
 		"nome": "Vivaan Castilhos",
 		"curso": "ENGFIS",
-		"tpc1": "15",
-		"tpc2": "14",
-		"tpc3": "11",
-		"tpc4": "12"
+		"notas": "13.0"
 	},
 	{
 		"id_aluno": "a21",
 		"nome": "Layana Camejo",
 		"curso": "ENGFIS",
-		"tpc1": "17",
-		"tpc2": "12",
-		"tpc3": "10",
-		"tpc4": "20"
+		"notas": "14.75"
 	},
 	{
 		"id_aluno": "a22",
 		"nome": "Mahdi Menoita",
 		"curso": "ENGFIS",
-		"tpc1": "11",
-		"tpc2": "16",
-		"tpc3": "8",
-		"tpc4": "16"
+		"notas": "12.75"
 	},
 	{
 		"id_aluno": "a23",
 		"nome": "Yifan Cortinado",
 		"curso": "LEI",
-		"tpc1": "19",
-		"tpc2": "16",
-		"tpc3": "8",
-		"tpc4": "18"
+		"notas": "15.25"
 	},
 	{
 		"id_aluno": "a24",
 		"nome": "E",
 		"curso": "der Sodré",
-		"tpc1": "ENGFIS",
-		"tpc2": "17",
-		"tpc3": "13",
-		"tpc4": "14"
+		"notas": "14.666666666666666"
 	},
 	{
 		"id_aluno": "a25",
 		"nome": "Dhriti Magano",
 		"curso": "ENGFIS",
-		"tpc1": "19",
-		"tpc2": "11",
-		"tpc3": "8",
-		"tpc4": "19"
+		"notas": "14.25"
 	},
 	{
 		"id_aluno": "a26",
 		"nome": "Steve Devesa",
 		"curso": "ENGBIOM",
-		"tpc1": "10",
-		"tpc2": "16",
-		"tpc3": "8",
-		"tpc4": "13"
+		"notas": "11.75"
 	},
 	{
 		"id_aluno": "a27",
 		"nome": "Lisandro Mariano Picassinos",
 		"curso": "ENGFIS",
-		"tpc1": "13",
-		"tpc2": "10",
-		"tpc3": "16",
-		"tpc4": "10"
+		"notas": "12.25"
 	},
 	{
 		"id_aluno": "a28",
 		"nome": "Itiel Quinoy",
 		"curso": "LEI",
-		"tpc1": "18",
-		"tpc2": "18",
-		"tpc3": "8",
-		"tpc4": "9"
+		"notas": "13.25"
 	},
 	{
 		"id_aluno": "a29",
 		"nome": "Pranika Reimoo",
 		"curso": "LEI",
-		"tpc1": "12",
-		"tpc2": "16",
-		"tpc3": "15",
-		"tpc4": "13"
+		"notas": "14.0"
 	},
 	{
 		"id_aluno": "a30",
 		"nome": "Manaia Viseu",
 		"curso": "ENGFIS",
-		"tpc1": "8",
-		"tpc2": "12",
-		"tpc3": "20",
-		"tpc4": "11"
+		"notas": "12.75"
 	},
 	{
 		"id_aluno": "a31",
 		"nome": "Eva Manuel Caio",
 		"curso": "ENGFIS",
-		"tpc1": "12",
-		"tpc2": "16",
-		"tpc3": "20",
-		"tpc4": "16"
+		"notas": "16.0"
 	},
 	{
 		"id_aluno": "a32",
 		"nome": "Ariane Sofia Foja",
 		"curso": "LEI",
-		"tpc1": "20",
-		"tpc2": "19",
-		"tpc3": "13",
-		"tpc4": "18"
+		"notas": "17.5"
 	},
 	{
 		"id_aluno": "a33",
 		"nome": "Jaime António Pauseiro",
 		"curso": "LCC",
-		"tpc1": "19",
-		"tpc2": "13",
-		"tpc3": "8",
-		"tpc4": "10"
+		"notas": "12.5"
 	},
 	{
 		"id_aluno": "a34",
 		"nome": "Tanisha Marzagoo",
 		"curso": "ENGBIOM",
-		"tpc1": "14",
-		"tpc2": "19",
-		"tpc3": "13",
-		"tpc4": "14"
+		"notas": "15.0"
 	},
 	{
 		"id_aluno": "a35",
 		"nome": "Siyon Anca",
 		"curso": "LEI",
-		"tpc1": "8",
-		"tpc2": "13",
-		"tpc3": "19",
-		"tpc4": "15"
+		"notas": "13.75"
 	},
 	{
 		"id_aluno": "a36",
 		"nome": "Diana Beatriz Boavista",
 		"curso": "LCC",
-		"tpc1": "19",
-		"tpc2": "18",
-		"tpc3": "17",
-		"tpc4": "12"
+		"notas": "16.5"
 	},
 	{
 		"id_aluno": "a37",
 		"nome": "Elisia",
 		"curso": "rio Saberio",
-		"tpc1": "ENGFIS",
-		"tpc2": "18",
-		"tpc3": "18",
-		"tpc4": "10"
+		"notas": "15.333333333333334"
 	},
 	{
 		"id_aluno": "a38",
 		"nome": "Maira Brites",
 		"curso": "ENGFIS",
-		"tpc1": "13",
-		"tpc2": "16",
-		"tpc3": "15",
-		"tpc4": "17"
+		"notas": "15.25"
 	},
 	{
 		"id_aluno": "a39",
 		"nome": "Victória Gabriela Incenso",
 		"curso": "LEI",
-		"tpc1": "17",
-		"tpc2": "14",
-		"tpc3": "13",
-		"tpc4": "8"
+		"notas": "13.0"
 	},
 	{
 		"id_aluno": "a40",
 		"nome": "Najua Serôdio",
 		"curso": "LCC",
-		"tpc1": "17",
-		"tpc2": "9",
-		"tpc3": "16",
-		"tpc4": "18"
+		"notas": "15.0"
 	},
 	{
 		"id_aluno": "a41",
 		"nome": "Lachezar Rosas",
 		"curso": "ENGBIOM",
-		"tpc1": "16",
-		"tpc2": "18",
-		"tpc3": "18",
-		"tpc4": "15"
+		"notas": "16.75"
 	},
 	{
 		"id_aluno": "a42",
 		"nome": "Kattleya Trigueiro",
 		"curso": "ENGFIS",
-		"tpc1": "19",
-		"tpc2": "16",
-		"tpc3": "14",
-		"tpc4": "15"
+		"notas": "16.0"
 	},
 	{
 		"id_aluno": "a43",
 		"nome": "Tatiana Guiomar Maricoto",
 		"curso": "LCC",
-		"tpc1": "19",
-		"tpc2": "8",
-		"tpc3": "15",
-		"tpc4": "11"
+		"notas": "13.25"
 	},
 	{
 		"id_aluno": "a44",
 		"nome": "Mélanie Daniela Bugalhão",
 		"curso": "LCC",
-		"tpc1": "17",
-		"tpc2": "9",
-		"tpc3": "17",
-		"tpc4": "18"
+		"notas": "15.25"
 	},
 	{
 		"id_aluno": "a45",
 		"nome": "Imayame Hespanha",
 		"curso": "ENGFIS",
-		"tpc1": "20",
-		"tpc2": "17",
-		"tpc3": "19",
-		"tpc4": "11"
+		"notas": "16.75"
 	},
 	{
 		"id_aluno": "a46",
 		"nome": "Yuri Gabriel Baganha",
 		"curso": "LCC",
-		"tpc1": "15",
-		"tpc2": "18",
-		"tpc3": "12",
-		"tpc4": "16"
+		"notas": "15.25"
 	},
 	{
 		"id_aluno": "a47",
 		"nome": "Moisés João Cornelio",
 		"curso": "LEI",
-		"tpc1": "20",
-		"tpc2": "16",
-		"tpc3": "19",
-		"tpc4": "17"
+		"notas": "18.0"
 	},
 	{
 		"id_aluno": "a48",
 		"nome": "Nazir Assif Trinta",
 		"curso": "LEI",
-		"tpc1": "14",
-		"tpc2": "14",
-		"tpc3": "12",
-		"tpc4": "8"
+		"notas": "12.0"
 	},
 	{
 		"id_aluno": "a49",
 		"nome": "Karamjot Arezes",
 		"curso": "LEI",
-		"tpc1": "10",
-		"tpc2": "9",
-		"tpc3": "20",
-		"tpc4": "12"
+		"notas": "12.75"
 	},
 	{
 		"id_aluno": "a50",
 		"nome": "Rishit Justa",
 		"curso": "ENGBIOM",
-		"tpc1": "9",
-		"tpc2": "9",
-		"tpc3": "9",
-		"tpc4": "12"
+		"notas": "9.75"
 	},
 	{
 		"id_aluno": "a51",
 		"nome": "Iara de Jesus Gonçalo",
 		"curso": "ENGFIS",
-		"tpc1": "14",
-		"tpc2": "8",
-		"tpc3": "12",
-		"tpc4": "14"
+		"notas": "12.0"
 	},
 	{
 		"id_aluno": "a52",
 		"nome": "Stepfan Owusu Lercas",
 		"curso": "LEI",
-		"tpc1": "18",
-		"tpc2": "9",
-		"tpc3": "16",
-		"tpc4": "14"
+		"notas": "14.25"
 	},
 	{
 		"id_aluno": "a53",
 		"nome": "Abner Umbelina",
 		"curso": "ENGBIOM",
-		"tpc1": "20",
-		"tpc2": "16",
-		"tpc3": "10",
-		"tpc4": "13"
+		"notas": "14.75"
 	},
 	{
 		"id_aluno": "a54",
 		"nome": "Dânia Lucy Montelobo",
 		"curso": "LEI",
-		"tpc1": "18",
-		"tpc2": "19",
-		"tpc3": "15",
-		"tpc4": "11"
+		"notas": "15.75"
 	},
 	{
 		"id_aluno": "a55",
 		"nome": "Myla Lopez",
 		"curso": "ENGFIS",
-		"tpc1": "9",
-		"tpc2": "17",
-		"tpc3": "12",
-		"tpc4": "20"
+		"notas": "14.5"
 	},
 	{
 		"id_aluno": "a56",
 		"nome": "Hakeem Brazão",
 		"curso": "LEI",
-		"tpc1": "18",
-		"tpc2": "18",
-		"tpc3": "13",
-		"tpc4": "20"
+		"notas": "17.25"
 	},
 	{
 		"id_aluno": "a57",
 		"nome": "Quinn Aveiro",
 		"curso": "ENGBIOM",
-		"tpc1": "17",
-		"tpc2": "16",
-		"tpc3": "9",
-		"tpc4": "13"
+		"notas": "13.75"
 	},
 	{
 		"id_aluno": "a58",
 		"nome": "Etienne Constentino",
 		"curso": "ENGBIOM",
-		"tpc1": "15",
-		"tpc2": "8",
-		"tpc3": "9",
-		"tpc4": "13"
+		"notas": "11.25"
 	},
 	{
 		"id_aluno": "a59",
 		"nome": "Emanuel Marcos Delfina",
 		"curso": "LEI",
-		"tpc1": "9",
-		"tpc2": "15",
-		"tpc3": "8",
-		"tpc4": "13"
+		"notas": "11.25"
 	},
 	{
 		"id_aluno": "a60",
 		"nome": "Mariana Catarina Ramalheira",
 		"curso": "ENGBIOM",
-		"tpc1": "17",
-		"tpc2": "19",
-		"tpc3": "19",
-		"tpc4": "11"
+		"notas": "16.5"
 	},
 	{
 		"id_aluno": "a61",
 		"nome": "Bradley Tabau",
 		"curso": "LCC",
-		"tpc1": "16",
-		"tpc2": "19",
-		"tpc3": "16",
-		"tpc4": "12"
+		"notas": "15.75"
 	},
 	{
 		"id_aluno": "a62",
 		"nome": "Ahmadou Bamba Calcinha",
 		"curso": "LCC",
-		"tpc1": "13",
-		"tpc2": "20",
-		"tpc3": "8",
-		"tpc4": "16"
+		"notas": "14.25"
 	},
 	{
 		"id_aluno": "a63",
 		"nome": "Francisco Pedro Derresa",
 		"curso": "ENGFIS",
-		"tpc1": "8",
-		"tpc2": "12",
-		"tpc3": "20",
-		"tpc4": "18"
+		"notas": "14.5"
 	},
 	{
 		"id_aluno": "a64",
 		"nome": "Gil Miguel Lima",
 		"curso": "ENGBIOM",
-		"tpc1": "16",
-		"tpc2": "19",
-		"tpc3": "8",
-		"tpc4": "14"
+		"notas": "14.25"
 	},
 	{
 		"id_aluno": "a65",
 		"nome": "Leonor Pedro Carqueijeiro",
 		"curso": "ENGBIOM",
-		"tpc1": "19",
-		"tpc2": "11",
-		"tpc3": "17",
-		"tpc4": "8"
+		"notas": "13.75"
 	},
 	{
 		"id_aluno": "a66",
 		"nome": "Genrikh Maximovich Vila",
 		"curso": "Chã",
-		"tpc1": "ENGFIS",
-		"tpc2": "12",
-		"tpc3": "15",
-		"tpc4": "13"
+		"notas": "13.333333333333334"
 	},
 	{
 		"id_aluno": "a67",
 		"nome": "Mayra Larissa Rolo",
 		"curso": "LCC",
-		"tpc1": "15",
-		"tpc2": "14",
-		"tpc3": "17",
-		"tpc4": "12"
+		"notas": "14.5"
 	},
 	{
 		"id_aluno": "a68",
 		"nome": "Leandro David Dunhoo",
 		"curso": "ENGBIOM",
-		"tpc1": "15",
-		"tpc2": "14",
-		"tpc3": "11",
-		"tpc4": "15"
+		"notas": "13.75"
 	},
 	{
 		"id_aluno": "a69",
 		"nome": "Adele Belchior",
 		"curso": "ENGBIOM",
-		"tpc1": "17",
-		"tpc2": "12",
-		"tpc3": "20",
-		"tpc4": "12"
+		"notas": "15.25"
 	},
 	{
 		"id_aluno": "a70",
 		"nome": "Frantceska Borreca",
 		"curso": "ENGFIS",
-		"tpc1": "18",
-		"tpc2": "11",
-		"tpc3": "19",
-		"tpc4": "8"
+		"notas": "14.0"
 	},
 	{
 		"id_aluno": "a71",
 		"nome": "Derrick Urias",
 		"curso": "ENGFIS",
-		"tpc1": "11",
-		"tpc2": "10",
-		"tpc3": "8",
-		"tpc4": "14"
+		"notas": "10.75"
 	},
 	{
 		"id_aluno": "a72",
 		"nome": "Ana Gabriel Quirino",
 		"curso": "LCC",
-		"tpc1": "10",
-		"tpc2": "17",
-		"tpc3": "8",
-		"tpc4": "19"
+		"notas": "13.5"
 	},
 	{
 		"id_aluno": "a73",
 		"nome": "Carolina Antoo",
 		"curso": "ENGBIOM",
-		"tpc1": "16",
-		"tpc2": "19",
-		"tpc3": "20",
-		"tpc4": "10"
+		"notas": "16.25"
 	},
 	{
 		"id_aluno": "a74",
 		"nome": "Vânia Sofia Porfirio",
 		"curso": "ENGBIOM",
-		"tpc1": "18",
-		"tpc2": "19",
-		"tpc3": "18",
-		"tpc4": "15"
+		"notas": "17.5"
 	},
 	{
 		"id_aluno": "a75",
 		"nome": "Dárcio Wosvaldo Tudela",
 		"curso": "LEI",
-		"tpc1": "8",
-		"tpc2": "18",
-		"tpc3": "9",
-		"tpc4": "18"
+		"notas": "13.25"
 	},
 	{
 		"id_aluno": "a76",
 		"nome": "Zhara Couxão",
 		"curso": "ENGFIS",
-		"tpc1": "16",
-		"tpc2": "10",
-		"tpc3": "14",
-		"tpc4": "12"
+		"notas": "13.0"
 	},
 	{
 		"id_aluno": "a77",
 		"nome": "Tomé Ferrito",
 		"curso": "LCC",
-		"tpc1": "14",
-		"tpc2": "10",
-		"tpc3": "15",
-		"tpc4": "19"
+		"notas": "14.5"
 	},
 	{
 		"id_aluno": "a78",
 		"nome": "Iasmin Paloma Chaveiro",
 		"curso": "LCC",
-		"tpc1": "8",
-		"tpc2": "15",
-		"tpc3": "19",
-		"tpc4": "9"
+		"notas": "12.75"
 	},
 	{
 		"id_aluno": "a79",
 		"nome": "Sadagi Cruto",
 		"curso": "ENGBIOM",
-		"tpc1": "13",
-		"tpc2": "18",
-		"tpc3": "14",
-		"tpc4": "18"
+		"notas": "15.75"
 	},
 	{
 		"id_aluno": "a80",
 		"nome": "Maria Carolina Josué",
 		"curso": "ENGFIS",
-		"tpc1": "17",
-		"tpc2": "20",
-		"tpc3": "17",
-		"tpc4": "18"
+		"notas": "18.0"
 	},
 	{
 		"id_aluno": "a81",
 		"nome": "Quaresma Lancastre",
 		"curso": "ENGBIOM",
-		"tpc1": "17",
-		"tpc2": "9",
-		"tpc3": "16",
-		"tpc4": "19"
+		"notas": "15.25"
 	},
 	{
 		"id_aluno": "a82",
 		"nome": "Evaldir Gervasio",
 		"curso": "ENGFIS",
-		"tpc1": "16",
-		"tpc2": "19",
-		"tpc3": "15",
-		"tpc4": "8"
+		"notas": "14.5"
 	},
 	{
 		"id_aluno": "a83",
 		"nome": "Dolorinda Adolfo",
 		"curso": "ENGFIS",
-		"tpc1": "11",
-		"tpc2": "20",
-		"tpc3": "16",
-		"tpc4": "8"
+		"notas": "13.75"
 	},
 	{
 		"id_aluno": "a84",
 		"nome": "Laudário Frasão",
 		"curso": "LCC",
-		"tpc1": "20",
-		"tpc2": "19",
-		"tpc3": "10",
-		"tpc4": "19"
+		"notas": "17.0"
 	},
 	{
 		"id_aluno": "a85",
 		"nome": "Rómula Jeronimo",
 		"curso": "ENGFIS",
-		"tpc1": "10",
-		"tpc2": "13",
-		"tpc3": "12",
-		"tpc4": "11"
+		"notas": "11.5"
 	},
 	{
 		"id_aluno": "a86",
 		"nome": "Clésio Rodeiro",
 		"curso": "LCC",
-		"tpc1": "9",
-		"tpc2": "13",
-		"tpc3": "12",
-		"tpc4": "18"
+		"notas": "13.0"
 	},
 	{
 		"id_aluno": "a87",
 		"nome": "Feliciano José Avis",
 		"curso": "ENGFIS",
-		"tpc1": "9",
-		"tpc2": "11",
-		"tpc3": "10",
-		"tpc4": "9"
+		"notas": "9.75"
 	},
 	{
 		"id_aluno": "a88",
 		"nome": "Afonso Adriano Marca",
 		"curso": "ENGBIOM",
-		"tpc1": "8",
-		"tpc2": "16",
-		"tpc3": "12",
-		"tpc4": "15"
+		"notas": "12.75"
 	},
 	{
 		"id_aluno": "a89",
 		"nome": "Victória Miguel Rosete",
 		"curso": "ENGFIS",
-		"tpc1": "8",
-		"tpc2": "13",
-		"tpc3": "13",
-		"tpc4": "18"
+		"notas": "13.0"
 	},
 	{
 		"id_aluno": "a90",
 		"nome": "Tome Teroso",
 		"curso": "ENGFIS",
-		"tpc1": "9",
-		"tpc2": "9",
-		"tpc3": "10",
-		"tpc4": "17"
+		"notas": "11.25"
 	},
 	{
 		"id_aluno": "a91",
 		"nome": "Constança Filipa Melado",
 		"curso": "LEI",
-		"tpc1": "10",
-		"tpc2": "12",
-		"tpc3": "8",
-		"tpc4": "20"
+		"notas": "12.5"
 	},
 	{
 		"id_aluno": "a92",
 		"nome": "Madalena Jesus Alfaiate",
 		"curso": "LEI",
-		"tpc1": "17",
-		"tpc2": "14",
-		"tpc3": "9",
-		"tpc4": "17"
+		"notas": "14.25"
 	},
 	{
 		"id_aluno": "a93",
 		"nome": "Bivhan Reimbau",
 		"curso": "LCC",
-		"tpc1": "17",
-		"tpc2": "11",
-		"tpc3": "8",
-		"tpc4": "12"
+		"notas": "12.0"
 	},
 	{
 		"id_aluno": "a94",
 		"nome": "Viviana Sofia Gaspar",
 		"curso": "ENGBIOM",
-		"tpc1": "16",
-		"tpc2": "16",
-		"tpc3": "20",
-		"tpc4": "14"
+		"notas": "16.5"
 	},
 	{
 		"id_aluno": "a95",
 		"nome": "Íris Soraia Chiote",
 		"curso": "LEI",
-		"tpc1": "11",
-		"tpc2": "11",
-		"tpc3": "17",
-		"tpc4": "16"
+		"notas": "13.75"
 	},
 	{
 		"id_aluno": "a96",
 		"nome": "Anai",
 		"curso": "s Sintra",
-		"tpc1": "LCC",
-		"tpc2": "19",
-		"tpc3": "19",
-		"tpc4": "12"
+		"notas": "16.666666666666668"
 	},
 	{
 		"id_aluno": "a97",
 		"nome": "Salvador Banaca",
 		"curso": "LCC",
-		"tpc1": "12",
-		"tpc2": "9",
-		"tpc3": "20",
-		"tpc4": "12"
+		"notas": "13.25"
 	},
 	{
 		"id_aluno": "a98",
 		"nome": "Guilherme Matias Almeirão",
 		"curso": "ENGFIS",
-		"tpc1": "14",
-		"tpc2": "9",
-		"tpc3": "12",
-		"tpc4": "11"
+		"notas": "11.5"
 	},
 	{
 		"id_aluno": "a99",
 		"nome": "Xavier Luís Bulha",
 		"curso": "ENGFIS",
-		"tpc1": "17",
-		"tpc2": "13",
-		"tpc3": "8",
-		"tpc4": "10"
+		"notas": "12.0"
 	},
 	{
 		"id_aluno": "a100",
 		"nome": "Tude Searas",
 		"curso": "LEI",
-		"tpc1": "20",
-		"tpc2": "17",
-		"tpc3": "8",
-		"tpc4": "14"
+		"notas": "14.75"
 	}
 ]
