@@ -20,29 +20,42 @@ def json(dic, name):
             res.write("\t}\n")
     res.write("]")
 
-
+# \"?(([\w/]+)({(\d+,\d+|\d+|\d+,|,\d+)}(::(sum|media))?)?)\"?
 def main():
     if len(sys.argv) < 2:
         print("No file selected")
         exit(0)
     f = open(sys.argv[1])
     linha = f.readline()
-    match = re.findall(r'\"?(([\w/]+)({(\d+,\d+|\d+|\d+,|,\d+)}(::(sum|media))?)?)\"?', linha)
+    match = re.findall(r'\"?(?:[,;\t])?(([\w/ \-]+)({(\d+,\d+|\d+|\d+,|,\d+)}(::(sum|media|(<|>|<=|>=)(\d+(.\d+)?)))?)?)\"?', linha)
+    print(match)
     if match:
         lis = []
         for linha in f:
             dic = {}
-            line = re.findall(r'\"?([\w/ ]+)\"?', linha)
+            line = re.findall(r'\"?([\w/ \-\.@]+)\"?', linha)
             for i in range(0, len(match)):
                 flag = True
-                if re.match(r'^(([\w/]+)({(\d+,\d+|\d+|\d+,|,\d+)}(::(sum|media))))$', match[i][0]):
+                if re.match(r'^(([\w/]+)({(\d+,\d+|\d+|\d+,|,\d+)}(::(sum|media|((<|>|<=|>=)\d+(.\d+)?)))))$', match[i][0]):
                     # operation:
                     sum = False
-                    media = False
+                    media = True
+                    menor = False
+                    maior = False
+                    equal = False
                     if match[i][5] == "sum":
                         sum = True
-                    if match[i][5] == "media":
-                        media = True
+                        media = False
+                    elif match[i][5] == "<":
+                        menor = True
+                    elif match[i][5] == ">":
+                        maior = True
+                    elif match[i][5] == "<=":
+                        menor = True
+                        igual = True
+                    else:
+                        maior = True
+                        igual = True
                     s = 0
                     split = match[i][3].split(",")
                     num = 0
@@ -54,6 +67,8 @@ def main():
                         flag = False
                     if media:
                         s = s / num
+                    if (maior and s <= float(match[i][7])) or (maior and igual and s < float(match[i][7])) or (menor and s >= float(match[i][7])) or (menor and igual and s > float(match[i][7])):
+                        flag = False
                     dic[match[i][1]] = s
                     i += num
                 elif re.match(r'^(([\w/]+)({(\d+,\d+|\d+|\d+,|,\d+)}))$', match[i][0]):

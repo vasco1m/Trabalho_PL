@@ -1,0 +1,6 @@
+html
+	head
+		h1
+			h2
+	body
+		g1

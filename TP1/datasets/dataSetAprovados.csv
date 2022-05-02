@@ -1,6 +1,6 @@
-id_aluno,nome,curso,notas{0,4}
-"a1,""Aysha Melanie Gilberto"",""LEI"",12,8,19,8,17,8"
-"a2,""Igor André Cantanhede"",""ENGFIS"",12,16,18,20"
+id_aluno,nome,curso,notas{0,4}::>=9.5
+"a1,""Aysha Melanie Gilberto"",""LEI"",12,8,19,8"
+"a2,""Igor André Cantanhede"",""ENGFIS"",2,6,8,2"
 "a3,""Laurénio Narciso"",""ENGFIS"",8,14,15,14"
 "a4,""Jasnoor Casegas"",""LCC"",14,20,17,11"
 "a5,""Tawseef Rebouças"",""ENGBIOM"",13,14,13,17"

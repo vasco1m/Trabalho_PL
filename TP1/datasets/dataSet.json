@@ -586,12 +586,12 @@
 	},
 	{
 		"id_aluno": "a66",
-		"nome": "Genrikh Maximovich Vila",
-		"curso": "Chã",
-		"tpc1": "ENGFIS",
-		"tpc2": "12",
-		"tpc3": "15",
-		"tpc4": "13"
+		"nome": "Genrikh Maximovich Vila-Chã",
+		"curso": "ENGFIS",
+		"tpc1": "12",
+		"tpc2": "15",
+		"tpc3": "13",
+		"tpc4": "9"
 	},
 	{
 		"id_aluno": "a67",
