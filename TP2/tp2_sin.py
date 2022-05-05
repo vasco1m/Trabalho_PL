@@ -51,36 +51,6 @@ def p_Command_list(p):
     return p
 
 
-def p_LqStr(p):
-    "LqStr : LqStr comma qStr"
-    p[0] = p[1] + ", " + p[3]
-    return p
-
-
-def p_LqStr_single(p):
-    "LqStr : qStr"
-    p[0] = p[1]
-    return p
-
-
-def p_Atribs(p):
-    "Atribs : Atribs Atrib"
-    p[0] = p[1] + " " + p[2]
-    return p
-
-
-def p_Atribs_single(p):
-    "Atribs : Atrib"
-    p[0] = p[1]
-    return p
-
-
-def p_Atrib(p):
-    "Atrib : id equal qStr"
-    p[0] = p[1] + "=" + p[3]
-    return p
-
-
 def p_Command_titule(p):
     "Command : Indents id STR"
     global html
@@ -129,6 +99,36 @@ def p_Command_doctype(p):
     "Command : doctype id"
     global html
     html = html + "<!DOCTYPE " + p[2] + ">\n"
+    return p
+
+
+def p_LqStr(p):
+    "LqStr : LqStr comma qStr"
+    p[0] = p[1] + ", " + p[3]
+    return p
+
+
+def p_LqStr_single(p):
+    "LqStr : qStr"
+    p[0] = p[1]
+    return p
+
+
+def p_Atribs(p):
+    "Atribs : Atribs Atrib"
+    p[0] = p[1] + " " + p[2]
+    return p
+
+
+def p_Atribs_single(p):
+    "Atribs : Atrib"
+    p[0] = p[1]
+    return p
+
+
+def p_Atrib(p):
+    "Atrib : id equal qStr"
+    p[0] = p[1] + "=" + p[3]
     return p
 
 
