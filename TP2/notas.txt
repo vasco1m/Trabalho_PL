@@ -1,0 +1,10 @@
+doctype html
+html
+	head
+		h1
+			h2$1$
+		h3#titule tit
+		p This is a paragraph tag
+		and this is a new line
+	body
+		g1

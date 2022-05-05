@@ -1,6 +1,10 @@
+doctype html
 html
 	head
 		h1
-			h2
+			h2$1$
+			h3#titule tit
+		input(type="password"name="inpPwd")
+		-const myClasses=["class1","class2","class3"]
 	body
 		g1
