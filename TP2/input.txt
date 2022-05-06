@@ -6,5 +6,10 @@ html
 			h3#titule tit
 		input(type="password"name="inpPwd")
 		-const myClasses=["class1","class2","class3"]
+
+		p.
+			This is a paragraph tag
+			and this is a new line
+
 	body
 		g1

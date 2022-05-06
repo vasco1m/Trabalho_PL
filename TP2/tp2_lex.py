@@ -2,13 +2,13 @@
 import ply.lex as lex
 
 
-literals = []
-tokens = ['doctype', 'id', 'tab', 'str', 'point', 'dSign', 'p', 'hash', 'input', 'fp', 'equal', 'qStr',
-        'comma', 'apR', 'fpR', 'const']
+literals = ['.']
+tokens = ['doctype', 'tab', 'str', 'dSign', 'hash', 'input', 'fp', 'equal', 'qStr',
+        'comma', 'ppoint', 'apR', 'fpR', 'const']
 
 
 def t_doctype(t):
-    r'doctype\ '
+    r'doctype'
     return t
 
 
@@ -52,11 +52,6 @@ def t_fp(t):
     return t
 
 
-def t_p(t):
-    r'p'
-    return t
-
-
 def t_hash(t):
     r'\#'
     return t
@@ -67,9 +62,9 @@ def t_dSign(t):
     return t
 
 
-def t_id(t):
-    r'[a-zA-Z_]\w*'
-    return t
+# def t_id(t):
+#     r'[a-zA-Z_]\w*'
+#     return t
 
 
 def t_tab(t):
@@ -77,17 +72,17 @@ def t_tab(t):
     return t
 
 
+def t_ppoint(t):
+    r'p\.'
+    return t
+
+
 def t_str(t):
-    r'[\w,\.\?\! ]+'
+    r'[\w,\.\?\!]+'
     return t
 
 
-def t_point(t):
-    r'\.'
-    return t
-
-
-t_ignore = "\n"
+t_ignore = " \n"
 
 
 def t_error(t):
