@@ -10,6 +10,19 @@ html
 		p.
 			This is a paragraph tag
 			and this is a new line
-
+		p
+			This is not a paragraph line
+			but this is a new line
+		.display-box
+		#myOnlyDiv
+		input(type=1)
+		div.my-div(class=2)
 	body
-		g1
+		ul
+			li This is item 1
+			li This is item 2
+			li this is item 3
+		p.big-para.
+			This is a big paragraph
+			It's just a paragraph but with a class
+		h3 hamburger

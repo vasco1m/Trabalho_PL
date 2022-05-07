@@ -2,7 +2,7 @@
 import ply.lex as lex
 
 
-literals = ['.']
+literals = ['.', '(', '{', '}', ':']
 tokens = ['doctype', 'tab', 'str', 'dSign', 'hash', 'input', 'fp', 'equal', 'qStr',
         'comma', 'ppoint', 'apR', 'fpR', 'const']
 
@@ -78,7 +78,7 @@ def t_ppoint(t):
 
 
 def t_str(t):
-    r'[\w,\.\?\!]+'
+    r'[\w,\?\!\'\-]+'
     return t
 
 

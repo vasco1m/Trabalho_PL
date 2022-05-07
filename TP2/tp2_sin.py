@@ -29,7 +29,7 @@ def p_Command(p):
                 html = html + "\t" * it + "</" + dictionary[it] + ">\n"
                 dictionary.pop(it)
         if dictionary.keys().__contains__(p[1]):
-            html = html + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + ">\n"
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + ">\n"
         else:
             html = html + "\t" * p[1] + "<" + p[2] + ">\n"
         dictionary[p[1]] = p[2]
@@ -52,10 +52,112 @@ def p_Command_point(p):
                 html = html + "\t" * it + "</" + dictionary[it] + ">\n"
                 dictionary.pop(it)
         if dictionary.keys().__contains__(p[1]):
-            html = html + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<p>\n"
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<p>\n"
         else:
             html = html + "\t" * p[1] + "<p>\n"
         dictionary[p[1]] = "p"
+        parser.inParagraph = True
+        parser.paragraphLen = p[1]
+    return p
+
+
+def p_Command_pointClass(p):
+    "Command : Indents str '.' str '.'"
+    global html
+    flag = True
+    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
+        html = html + '\t' * p[1] + p[2] + '\n'
+        flag = False
+    elif p[1] <= parser.paragraphLen:
+        parser.inParagraph = False
+        parser.paragraphLen = 0
+    if flag:
+        for it in reversed(sorted(dictionary.keys())):
+            if it > p[1]:
+                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
+                dictionary.pop(it)
+        if dictionary.keys().__contains__(p[1]):
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + " class=\"" + p[4] + "\">\n"
+            dictionary.pop(p[1])
+        else:
+            html = html + "\t" * p[1] + "<" + p[2] + " class=\"" + p[4] + "\">\n"
+        dictionary[p[1]] = p[2]
+        parser.inParagraph = True
+        parser.paragraphLen = p[1]
+    return p
+
+
+def p_Command_pointClassp(p):
+    "Command : Indents ppoint str '.'"
+    global html
+    flag = True
+    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
+        html = html + '\t' * p[1] + p[2] + '\n'
+        flag = False
+    elif p[1] <= parser.paragraphLen:
+        parser.inParagraph = False
+        parser.paragraphLen = 0
+    if flag:
+        for it in reversed(sorted(dictionary.keys())):
+            if it > p[1]:
+                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
+                dictionary.pop(it)
+        if dictionary.keys().__contains__(p[1]):
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<p class=\"" + p[3] + "\">\n"
+            dictionary.pop(p[1])
+        else:
+            html = html + "\t" * p[1] + "<p class=\"" + p[3] + "\">\n"
+        dictionary[p[1]] = "p"
+        parser.inParagraph = True
+        parser.paragraphLen = p[1]
+    return p
+
+
+def p_Command_divClass(p):
+    "Command : Indents '.' str"
+    global html
+    flag = True
+    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
+        html = html + '\t' * p[1] + p[2] + '\n'
+        flag = False
+    elif p[1] <= parser.paragraphLen:
+        parser.inParagraph = False
+        parser.paragraphLen = 0
+    if flag:
+        for it in reversed(sorted(dictionary.keys())):
+            if it > p[1]:
+                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
+                dictionary.pop(it)
+        if dictionary.keys().__contains__(p[1]):
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<div class=\"" + p[3] + "\"></div>\n"
+            dictionary.pop(p[1])
+        else:
+            html = html + "\t" * p[1] + "<div class=\"" + p[3] + "\"></div>\n"
+        parser.inParagraph = True
+        parser.paragraphLen = p[1]
+    return p
+
+
+def p_Command_divHash(p):
+    "Command : Indents hash str"
+    global html
+    flag = True
+    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
+        html = html + '\t' * p[1] + p[2] + '\n'
+        flag = False
+    elif p[1] <= parser.paragraphLen:
+        parser.inParagraph = False
+        parser.paragraphLen = 0
+    if flag:
+        for it in reversed(sorted(dictionary.keys())):
+            if it > p[1]:
+                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
+                dictionary.pop(it)
+        if dictionary.keys().__contains__(p[1]):
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<div id=\"" + p[3] + "\"></div>\n"
+            dictionary.pop(p[1])
+        else:
+            html = html + "\t" * p[1] + "<div id=\"" + p[3] + "\"></div>\n"
         parser.inParagraph = True
         parser.paragraphLen = p[1]
     return p
@@ -77,10 +179,60 @@ def p_Command_input(p):
                 html = html + "\t" * it + "</" + dictionary[it] + ">\n"
                 dictionary.pop(it)
         if dictionary.keys().__contains__(p[1]):
-            html = html + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<input " + p[3] + ">\n"
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<input " + p[3] + ">\n"
             dictionary.pop(p[1])
         else:
-            html = html + "\t" * p[1] + "<" + p[3] + ">\n"
+            html = html + "\t" * p[1] + "<input " + p[3] + ">\n"
+    return p
+
+
+def p_Command_Atrib(p):
+    "Command : Indents str '(' Atrib fp"
+    global html
+    flag = True
+    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
+        html = html + '\t' * p[1] + p[2] + " " + p[3] + p[4] + '\n'
+        flag = False
+    elif p[1] <= parser.paragraphLen:
+        parser.inParagraph = False
+        parser.paragraphLen = 0
+    if flag:
+        for it in reversed(sorted(dictionary.keys())):
+            if it > p[1]:
+                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
+                dictionary.pop(it)
+        if dictionary.keys().__contains__(p[1]):
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<div " + p[4] + ">\n"
+            dictionary.pop(p[1])
+        else:
+            html = html + "\t" * p[1] + "<div " + p[4] + ">\n"
+    return p
+
+
+def p_Command_atribClass(p):
+    "Command : Indents str '.' str '(' str equal str fp"
+    global html
+    flag = True
+    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
+        html = html + '\t' * p[1] + p[2] + '\n'
+        flag = False
+    elif p[1] <= parser.paragraphLen:
+        parser.inParagraph = False
+        parser.paragraphLen = 0
+    if flag:
+        for it in reversed(sorted(dictionary.keys())):
+            if it > p[1]:
+                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
+                dictionary.pop(it)
+        if htmlDict.__contains__(p[8]):
+            value = htmlDict[p[8]]
+        else:
+            value = "error"
+        if dictionary.keys().__contains__(p[1]):
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + " class=\"" + p[4] + " " + value + "\"></" + p[2] + "\n"
+            dictionary.pop(p[1])
+        else:
+            html = html + "\t" * p[1] + "<" + p[2] + " class=\"" + p[4] + " " + value + "\"></" + p[2] + "\n"
     return p
 
 
@@ -110,7 +262,15 @@ def p_Command_titule(p):
         parser.inParagraph = False
         parser.paragraphLen = 0
     if flag:
-        html = html + "\t" * p[1] + "<" + p[2] + ">" + p[3] + "</" + p[2] + ">\n"
+        for it in reversed(sorted(dictionary.keys())):
+            if it > p[1]:
+                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
+                dictionary.pop(it)
+        if dictionary.keys().__contains__(p[1]):
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + ">" + p[3] + "</" + p[2] + ">\n"
+            dictionary.pop(p[1])
+        else:
+            html = html + "\t" * p[1] + "<" + p[2] + ">" + p[3] + "</" + p[2] + ">\n"
     return p
 
 
@@ -162,8 +322,17 @@ def p_Atribs_single(p):
 
 
 def p_Atrib(p):
-    "Atrib : str equal qStr" # id
+    "Atrib : str equal qStr"
     p[0] = p[1] + "=" + p[3]
+    return p
+
+
+def p_Atrib_str(p):
+    "Atrib : str equal str"
+    if htmlDict.__contains__(p[3]):
+        p[0] = p[1] + "=" + htmlDict[p[3]]
+    else:
+        p[0] = p[1] + "=" + p[3]
     return p
 
 
@@ -175,7 +344,6 @@ def p_str(p):
 
 def p_str_var(p):
     "STR : dSign str dSign"
-    global htmlDict
     p[0] = htmlDict[p[2]]
     return p
 
