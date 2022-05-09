@@ -2,14 +2,19 @@
 import ply.lex as lex
 
 
-literals = ['.', '(', '{', '}', ':']
+literals = ['.', '(', '{', '}', ':', '[', ']']
 tokens = ['doctype', 'tab', 'str', 'dSign', 'hash', 'input', 'fp', 'equal', 'qStr',
-        'comma', 'ppoint', 'apR', 'fpR', 'const']
+        'comma', 'ppoint', 'apR', 'fpR', 'const', 'each', 'in', 'for', 'size', 'language']
 
 
 def t_doctype(t):
     r'doctype'
     return t
+
+
+# def t_chapiter(t):
+#     r'chapiter'
+#     return t
 
 
 def t_input(t):
@@ -62,11 +67,6 @@ def t_dSign(t):
     return t
 
 
-# def t_id(t):
-#     r'[a-zA-Z_]\w*'
-#     return t
-
-
 def t_tab(t):
     r'\t'
     return t
@@ -77,8 +77,33 @@ def t_ppoint(t):
     return t
 
 
+def t_each(t):
+    r'each'
+    return t
+
+
+def t_in(t):
+    r'in'
+    return t
+
+
+def t_for(t):
+    r'for'
+    return t
+
+
+def t_size(t):
+    r'size='
+    return t
+
+
+def t_language(t):
+    r'language='
+    return t
+
+
 def t_str(t):
-    r'[\w,\?\!\'\-]+'
+    r'[\w,\?\!\'\-\:\;]+'
     return t
 
 

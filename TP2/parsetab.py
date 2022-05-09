@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = "apR comma const dSign doctype equal fp fpR hash input ppoint qStr str tabCommands : Commands CommandCommands : CommandCommand : Indents strCommand : Indents ppointCommand : Indents str '.' str '.'Command : Indents ppoint str '.'Command : Indents '.' strCommand : Indents hash strCommand : Indents input Atribs fpCommand : Indents str '(' Atrib fpCommand : Indents str '.' str '(' str equal str fpCommand : Indents const str equal apR LqStr fpRCommand : Indents str STRCommand : Indents str hash str STRCommand : doctype strLqStr : LqStr comma qStrLqStr : qStrAtribs : Atribs AtribAtribs : AtribAtrib : str equal qStrAtrib : str equal strSTR : STR strSTR : dSign str dSignSTR : strIndents : Indents IndentIndents : Indent : tab"
+_lr_signature = "apR comma const dSign doctype equal fp fpR hash input language ppoint qStr size str tabCommands : Commands CommandCommands : CommandCommand : Indents strCommand : Indents ppointCommand : Indents str '.' str '.'Command : Indents str '{'Command : Indents '}'Command : Indents ppoint str '.'Command : Indents '.' strCommand : Indents hash strCommand : Indents input Atribs fpCommand : Indents str '(' Atrib fpCommand : Indents str '(' Atrib fp STRCommand : Indents str '.' str '(' str equal str fpCommand : Indents const str equal apR LqStr fpRCommand : Indents str STRCommand : Indents str hash str STRCommand : doctype strCommand : doctype str size str language strLqStr : LqStr comma qStrLqStr : qStrAtribs : Atribs AtribAtribs : AtribAtrib : str equal qStrAtrib : str equal strSTR : STR strSTR : dSign str dSignSTR : dSign str '.' str dSignSTR : strIndents : Indents IndentIndents : Indent : tab"
     
-_lr_action_items = {'doctype':([0,1,2,5,6,7,14,15,18,22,23,30,33,34,38,40,41,42,50,54,],[4,4,-2,-1,-3,-4,-15,-24,-13,-7,-8,-22,-6,-9,-5,-10,-14,-23,-12,-11,]),'str':([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,23,24,25,30,31,33,34,35,36,38,39,40,41,42,43,44,49,50,54,],[-26,-26,-2,6,14,-1,15,21,22,23,26,27,-25,-27,-15,-24,28,26,30,31,32,-7,-8,26,-19,-22,15,-6,-9,-18,43,-5,46,-10,30,-23,-21,-20,52,-12,-11,]),'ppoint':([0,1,2,3,5,6,7,12,13,14,15,18,22,23,30,33,34,38,40,41,42,50,54,],[-26,-26,-2,7,-1,-3,-4,-25,-27,-15,-24,-13,-7,-8,-22,-6,-9,-5,-10,-14,-23,-12,-11,]),'.':([0,1,2,3,5,6,7,12,13,14,15,18,21,22,23,28,30,33,34,38,40,41,42,50,54,],[-26,-26,-2,8,-1,16,-4,-25,-27,-15,-24,-13,33,-7,-8,38,-22,-6,-9,-5,-10,-14,-23,-12,-11,]),'hash':([0,1,2,3,5,6,7,12,13,14,15,18,22,23,30,33,34,38,40,41,42,50,54,],[-26,-26,-2,9,-1,19,-4,-25,-27,-15,-24,-13,-7,-8,-22,-6,-9,-5,-10,-14,-23,-12,-11,]),'input':([0,1,2,3,5,6,7,12,13,14,15,18,22,23,30,33,34,38,40,41,42,50,54,],[-26,-26,-2,10,-1,-3,-4,-25,-27,-15,-24,-13,-7,-8,-22,-6,-9,-5,-10,-14,-23,-12,-11,]),'const':([0,1,2,3,5,6,7,12,13,14,15,18,22,23,30,33,34,38,40,41,42,50,54,],[-26,-26,-2,11,-1,-3,-4,-25,-27,-15,-24,-13,-7,-8,-22,-6,-9,-5,-10,-14,-23,-12,-11,]),'tab':([0,1,2,3,5,6,7,12,13,14,15,18,22,23,30,33,34,38,40,41,42,50,54,],[-26,-26,-2,13,-1,-3,-4,-25,-27,-15,-24,-13,-7,-8,-22,-6,-9,-5,-10,-14,-23,-12,-11,]),'$end':([1,2,5,6,7,14,15,18,22,23,30,33,34,38,40,41,42,50,54,],[0,-2,-1,-3,-4,-15,-24,-13,-7,-8,-22,-6,-9,-5,-10,-14,-23,-12,-11,]),'(':([6,28,],[17,39,]),'dSign':([6,31,32,],[20,20,42,]),'fp':([24,25,29,35,43,44,52,],[34,-19,40,-18,-21,-20,54,]),'equal':([26,27,46,],[36,37,49,]),'qStr':([36,45,51,],[44,48,53,]),'apR':([37,],[45,]),'fpR':([47,48,53,],[50,-17,-16,]),'comma':([47,48,53,],[51,-17,-16,]),}
+_lr_action_items = {'doctype':([0,1,2,5,6,7,9,15,16,18,20,24,25,33,36,37,42,44,45,46,53,57,59,60,64,],[4,4,-2,-1,-3,-4,-7,-18,-29,-6,-16,-9,-10,-26,-8,-11,-5,-12,-17,-27,-13,-19,-28,-15,-14,]),'str':([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25,26,27,30,33,34,36,37,38,39,42,43,44,45,46,47,48,49,51,53,57,58,59,60,64,],[-31,-31,-2,6,15,-1,16,23,24,-7,25,28,29,-30,-32,-18,-29,31,-6,28,33,34,35,-9,-10,28,-23,41,-26,16,-8,-11,-22,48,-5,52,16,33,-27,54,-25,-24,57,33,-19,62,-28,-15,-14,]),'ppoint':([0,1,2,3,5,6,7,9,13,14,15,16,18,20,24,25,33,36,37,42,44,45,46,53,57,59,60,64,],[-31,-31,-2,7,-1,-3,-4,-7,-30,-32,-18,-29,-6,-16,-9,-10,-26,-8,-11,-5,-12,-17,-27,-13,-19,-28,-15,-14,]),'}':([0,1,2,3,5,6,7,9,13,14,15,16,18,20,24,25,33,36,37,42,44,45,46,53,57,59,60,64,],[-31,-31,-2,9,-1,-3,-4,-7,-30,-32,-18,-29,-6,-16,-9,-10,-26,-8,-11,-5,-12,-17,-27,-13,-19,-28,-15,-14,]),'.':([0,1,2,3,5,6,7,9,13,14,15,16,18,20,23,24,25,31,33,35,36,37,42,44,45,46,53,57,59,60,64,],[-31,-31,-2,8,-1,17,-4,-7,-30,-32,-18,-29,-6,-16,36,-9,-10,42,-26,47,-8,-11,-5,-12,-17,-27,-13,-19,-28,-15,-14,]),'hash':([0,1,2,3,5,6,7,9,13,14,15,16,18,20,24,25,33,36,37,42,44,45,46,53,57,59,60,64,],[-31,-31,-2,10,-1,21,-4,-7,-30,-32,-18,-29,-6,-16,-9,-10,-26,-8,-11,-5,-12,-17,-27,-13,-19,-28,-15,-14,]),'input':([0,1,2,3,5,6,7,9,13,14,15,16,18,20,24,25,33,36,37,42,44,45,46,53,57,59,60,64,],[-31,-31,-2,11,-1,-3,-4,-7,-30,-32,-18,-29,-6,-16,-9,-10,-26,-8,-11,-5,-12,-17,-27,-13,-19,-28,-15,-14,]),'const':([0,1,2,3,5,6,7,9,13,14,15,16,18,20,24,25,33,36,37,42,44,45,46,53,57,59,60,64,],[-31,-31,-2,12,-1,-3,-4,-7,-30,-32,-18,-29,-6,-16,-9,-10,-26,-8,-11,-5,-12,-17,-27,-13,-19,-28,-15,-14,]),'tab':([0,1,2,3,5,6,7,9,13,14,15,16,18,20,24,25,33,36,37,42,44,45,46,53,57,59,60,64,],[-31,-31,-2,14,-1,-3,-4,-7,-30,-32,-18,-29,-6,-16,-9,-10,-26,-8,-11,-5,-12,-17,-27,-13,-19,-28,-15,-14,]),'$end':([1,2,5,6,7,9,15,16,18,20,24,25,33,36,37,42,44,45,46,53,57,59,60,64,],[0,-2,-1,-3,-4,-7,-18,-29,-6,-16,-9,-10,-26,-8,-11,-5,-12,-17,-27,-13,-19,-28,-15,-14,]),'{':([6,],[18,]),'(':([6,31,],[19,43,]),'dSign':([6,34,35,44,54,],[22,22,46,22,59,]),'size':([15,],[30,]),'fp':([26,27,32,38,48,49,62,],[37,-23,44,-22,-25,-24,64,]),'equal':([28,29,52,],[39,40,58,]),'qStr':([39,50,61,],[49,56,63,]),'apR':([40,],[50,]),'language':([41,],[51,]),'fpR':([55,56,63,],[60,-21,-20,]),'comma':([55,56,63,],[61,-21,-20,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'Commands':([0,],[1,]),'Command':([0,1,],[2,5,]),'Indents':([0,1,],[3,3,]),'Indent':([3,],[12,]),'STR':([6,31,],[18,41,]),'Atribs':([10,],[24,]),'Atrib':([10,17,24,],[25,29,35,]),'LqStr':([45,],[47,]),}
+_lr_goto_items = {'Commands':([0,],[1,]),'Command':([0,1,],[2,5,]),'Indents':([0,1,],[3,3,]),'Indent':([3,],[13,]),'STR':([6,34,44,],[20,45,53,]),'Atribs':([11,],[26,]),'Atrib':([11,19,26,],[27,32,38,]),'LqStr':([50,],[55,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,31 +27,36 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> Commands","S'",1,None,None,None),
-  ('Commands -> Commands Command','Commands',2,'p_Commands','tp2_sin.py',7),
-  ('Commands -> Command','Commands',1,'p_Commands_single','tp2_sin.py',12),
-  ('Command -> Indents str','Command',2,'p_Command','tp2_sin.py',17),
-  ('Command -> Indents ppoint','Command',2,'p_Command_point','tp2_sin.py',40),
-  ('Command -> Indents str . str .','Command',5,'p_Command_pointClass','tp2_sin.py',65),
-  ('Command -> Indents ppoint str .','Command',4,'p_Command_pointClassp','tp2_sin.py',91),
-  ('Command -> Indents . str','Command',3,'p_Command_divClass','tp2_sin.py',117),
-  ('Command -> Indents hash str','Command',3,'p_Command_divHash','tp2_sin.py',142),
-  ('Command -> Indents input Atribs fp','Command',4,'p_Command_input','tp2_sin.py',167),
-  ('Command -> Indents str ( Atrib fp','Command',5,'p_Command_Atrib','tp2_sin.py',190),
-  ('Command -> Indents str . str ( str equal str fp','Command',9,'p_Command_atribClass','tp2_sin.py',213),
-  ('Command -> Indents const str equal apR LqStr fpR','Command',7,'p_Command_list','tp2_sin.py',236),
-  ('Command -> Indents str STR','Command',3,'p_Command_titule','tp2_sin.py',251),
-  ('Command -> Indents str hash str STR','Command',5,'p_Command_class','tp2_sin.py',274),
-  ('Command -> doctype str','Command',2,'p_Command_doctype','tp2_sin.py',290),
-  ('LqStr -> LqStr comma qStr','LqStr',3,'p_LqStr','tp2_sin.py',297),
-  ('LqStr -> qStr','LqStr',1,'p_LqStr_single','tp2_sin.py',303),
-  ('Atribs -> Atribs Atrib','Atribs',2,'p_Atribs','tp2_sin.py',309),
-  ('Atribs -> Atrib','Atribs',1,'p_Atribs_single','tp2_sin.py',315),
-  ('Atrib -> str equal qStr','Atrib',3,'p_Atrib','tp2_sin.py',321),
-  ('Atrib -> str equal str','Atrib',3,'p_Atrib_str','tp2_sin.py',327),
-  ('STR -> STR str','STR',2,'p_str','tp2_sin.py',336),
-  ('STR -> dSign str dSign','STR',3,'p_str_var','tp2_sin.py',342),
-  ('STR -> str','STR',1,'p_str_single','tp2_sin.py',348),
-  ('Indents -> Indents Indent','Indents',2,'p_Indents','tp2_sin.py',354),
-  ('Indents -> <empty>','Indents',0,'p_Indents_empty','tp2_sin.py',360),
-  ('Indent -> tab','Indent',1,'p_Indent','tp2_sin.py',366),
+  ('Commands -> Commands Command','Commands',2,'p_Commands','tp2_sin.py',8),
+  ('Commands -> Command','Commands',1,'p_Commands_single','tp2_sin.py',13),
+  ('Command -> Indents str','Command',2,'p_Command','tp2_sin.py',18),
+  ('Command -> Indents ppoint','Command',2,'p_Command_point','tp2_sin.py',41),
+  ('Command -> Indents str . str .','Command',5,'p_Command_pointClass','tp2_sin.py',66),
+  ('Command -> Indents str {','Command',3,'p_Command_bracketsOpen','tp2_sin.py',92),
+  ('Command -> Indents }','Command',2,'p_Command_bracketsClose','tp2_sin.py',117),
+  ('Command -> Indents ppoint str .','Command',4,'p_Command_pointClassp','tp2_sin.py',134),
+  ('Command -> Indents . str','Command',3,'p_Command_divClass','tp2_sin.py',160),
+  ('Command -> Indents hash str','Command',3,'p_Command_divHash','tp2_sin.py',185),
+  ('Command -> Indents input Atribs fp','Command',4,'p_Command_input','tp2_sin.py',210),
+  ('Command -> Indents str ( Atrib fp','Command',5,'p_Command_Atrib','tp2_sin.py',233),
+  ('Command -> Indents str ( Atrib fp STR','Command',6,'p_Command_AtribStr','tp2_sin.py',256),
+  ('Command -> Indents str . str ( str equal str fp','Command',9,'p_Command_atribClass','tp2_sin.py',279),
+  ('Command -> Indents const str equal apR LqStr fpR','Command',7,'p_Command_list','tp2_sin.py',306),
+  ('Command -> Indents str STR','Command',3,'p_Command_titule','tp2_sin.py',321),
+  ('Command -> Indents str hash str STR','Command',5,'p_Command_class','tp2_sin.py',344),
+  ('Command -> doctype str','Command',2,'p_Command_doctype','tp2_sin.py',360),
+  ('Command -> doctype str size str language str','Command',6,'p_Command_doctypeLatexCommands','tp2_sin.py',372),
+  ('LqStr -> LqStr comma qStr','LqStr',3,'p_LqStr','tp2_sin.py',382),
+  ('LqStr -> qStr','LqStr',1,'p_LqStr_single','tp2_sin.py',388),
+  ('Atribs -> Atribs Atrib','Atribs',2,'p_Atribs','tp2_sin.py',394),
+  ('Atribs -> Atrib','Atribs',1,'p_Atribs_single','tp2_sin.py',400),
+  ('Atrib -> str equal qStr','Atrib',3,'p_Atrib','tp2_sin.py',406),
+  ('Atrib -> str equal str','Atrib',3,'p_Atrib_str','tp2_sin.py',412),
+  ('STR -> STR str','STR',2,'p_str','tp2_sin.py',421),
+  ('STR -> dSign str dSign','STR',3,'p_str_var','tp2_sin.py',427),
+  ('STR -> dSign str . str dSign','STR',5,'p_str_varDotVar','tp2_sin.py',433),
+  ('STR -> str','STR',1,'p_str_single','tp2_sin.py',439),
+  ('Indents -> Indents Indent','Indents',2,'p_Indents','tp2_sin.py',445),
+  ('Indents -> <empty>','Indents',0,'p_Indents_empty','tp2_sin.py',451),
+  ('Indent -> tab','Indent',1,'p_Indent','tp2_sin.py',457),
 ]

@@ -1,5 +1,6 @@
 # encoding=utf-8
 import ply.yacc as yacc
+import re
 from tp2_lex import tokens, literals
 
 
@@ -14,7 +15,7 @@ def p_Commands_single(p):
 
 
 def p_Command(p):
-    "Command : Indents str" #id
+    "Command : Indents str"
     global html
     flag = True
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
@@ -37,7 +38,7 @@ def p_Command(p):
 
 
 def p_Command_point(p):
-    "Command : Indents ppoint" #id
+    "Command : Indents ppoint"
     global html
     flag = True
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
@@ -84,6 +85,48 @@ def p_Command_pointClass(p):
         dictionary[p[1]] = p[2]
         parser.inParagraph = True
         parser.paragraphLen = p[1]
+    return p
+
+
+def p_Command_bracketsOpen(p):
+    "Command : Indents str '{'"
+    global html
+    flag = True
+    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
+        html = html + '\t' * p[1] + p[2] + '\n'
+        flag = False
+    elif p[1] <= parser.paragraphLen:
+        parser.inParagraph = False
+        parser.paragraphLen = 0
+    if flag:
+        for it in reversed(sorted(dictionary.keys())):
+            if it > p[1]:
+                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
+                dictionary.pop(it)
+        if dictionary.keys().__contains__(p[1]):
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + " class=\"" + p[4] + "\">\n"
+            dictionary.pop(p[1])
+        else:
+            html = html + "\t" * p[1] + p[2] + "{\n"
+        parser.inParagraph = True
+        parser.paragraphLen = p[1]
+    return p
+
+
+def p_Command_bracketsClose(p):
+    "Command : Indents '}'"
+    global html
+    flag = True
+    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
+        html = html + '\t' * p[1] + p[2] + '\n'
+        flag = False
+    elif p[1] <= parser.paragraphLen:
+        parser.inParagraph = False
+        parser.paragraphLen = 0
+    if flag:
+        html = html + "\t" * p[1] + "}\n"
+        parser.inParagraph = False
+        parser.paragraphLen = 0
     return p
 
 
@@ -209,6 +252,29 @@ def p_Command_Atrib(p):
     return p
 
 
+def p_Command_AtribStr(p):
+    "Command : Indents str '(' Atrib fp STR"
+    global html
+    flag = True
+    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
+        html = html + '\t' * p[1] + p[2] + " " + p[3] + p[4] + p[5] + p[6] + '\n'
+        flag = False
+    elif p[1] <= parser.paragraphLen:
+        parser.inParagraph = False
+        parser.paragraphLen = 0
+    if flag:
+        for it in reversed(sorted(dictionary.keys())):
+            if it > p[1]:
+                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
+                dictionary.pop(it)
+        if dictionary.keys().__contains__(p[1]):
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + " " + p[4] + ">" + p[6] + "</" + p[2] + ">\n"
+            dictionary.pop(p[1])
+        else:
+            html = html + "\t" * p[1] + "<" + p[2] + " " + p[4] + ">" + p[6] + "</" + p[2] + ">\n"
+    return p
+
+
 def p_Command_atribClass(p):
     "Command : Indents str '.' str '(' str equal str fp"
     global html
@@ -252,7 +318,7 @@ def p_Command_list(p):
 
 
 def p_Command_titule(p):
-    "Command : Indents str STR" #id
+    "Command : Indents str STR"
     global html
     flag = True
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
@@ -274,8 +340,32 @@ def p_Command_titule(p):
     return p
 
 
+# INCOMPLETO!!!!!!!!!
+def p_Command_each(p):
+    "Command : Indents each str in '[' STR ']'"
+    global html
+    flag = True
+    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
+        html = html + '\t' * p[1] + p[2] + " " + p[3] + p[4] + p[5] + p[6] + '\n'
+        flag = False
+    elif p[1] <= parser.paragraphLen:
+        parser.inParagraph = False
+        parser.paragraphLen = 0
+    if flag:
+        for it in reversed(sorted(dictionary.keys())):
+            if it > p[1]:
+                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
+                dictionary.pop(it)
+        if dictionary.keys().__contains__(p[1]):
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + " " + p[4] + ">" + p[6] + "</" + p[2] + ">\n"
+            dictionary.pop(p[1])
+        else:
+            html = html + "\t" * p[1] + "<" + p[2] + " " + p[4] + ">" + p[6] + "</" + p[2] + ">\n"
+    return p
+
+
 def p_Command_class(p):
-    "Command : Indents str hash str STR" #id hash id
+    "Command : Indents str hash str STR"
     global html
     flag = True
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
@@ -291,9 +381,24 @@ def p_Command_class(p):
     
 
 def p_Command_doctype(p):
-    "Command : doctype str" # id
+    "Command : doctype str"
     global html
-    html = html + "<!DOCTYPE " + p[2] + ">\n"
+    if p[2] == "html":
+        parser.htmlFlag = True
+        html = html + "<!DOCTYPE " + p[2] + ">\n"
+    if p[2] == "LaTeX":
+        parser.laTeXFlag = True
+        html = "\\documentclass[a4paper,12pt]\n\\usepackage[english]{babel}\n\\usepackage[utf8]{inputenc}\n\n\\pagestyle{headings}\n\n\\begin{document}"
+    return p
+
+
+def p_Command_doctypeLatexCommands(p):
+    "Command : doctype str size str language str"
+    global html
+    if p[2] == "LaTeX":
+        html = "\\documentclass[" + p[4] + "]\n\\usepackage[" + p[6] +"]{babel}\n\\usepackage[utf8]{inputenc}\n\n\\pagestyle{headings}\n\n\\begin{document}"
+    else:
+        parser.validFileFormat = False
     return p
 
 
@@ -348,6 +453,12 @@ def p_str_var(p):
     return p
 
 
+def p_str_varDotVar(p):
+    "STR : dSign str '.' str dSign"
+    p[0] = htmlDict[p[2]].p[4]
+    return p
+
+
 def p_str_single(p):
     "STR : str"
     p[0] = p[1]
@@ -377,6 +488,13 @@ def p_error(p):
     parser.success = False
 
 
+def helpCommand():
+    return """Hi, I'm here to help.
+This program is a parser from simple files to HTML or LaTeX, to use it you have to insert the header \"doctype html\" or \"doctype LaTeX\", and write your code in a very simple way.
+Use tabs to indent your code and create nested resources.
+\n\n\nVersion: 1.0"""
+
+
 # Build the parser
 parser = yacc.yacc()
 
@@ -385,16 +503,38 @@ htmlDict = {"1":"aaaa", "2":"bbbb", "3":"cccc"}
 html = ""
 
 import sys
-parser.success = True
-parser.inParagraph = False
-parser.paragraphLen = 0
-program = sys.stdin.read()
-parser.parse(program)
-if parser.success:
-    print("Programa Válido")
+
+if sys.argv[1] == "-h":
+    print(helpCommand())
+    quit()
+file = open(sys.argv[1])
+if file == None:
+    print("The file you selected can't be opened. Please check the problem")
 else:
-    print("Programa Inválido... Corrija e tente novamente")
-for item in reversed(sorted(dictionary.keys())):
-    html = html + "\t" * item + "</" + dictionary[item] + ">\n"
-    dictionary.pop(item)
-print(html)
+    parser.success = True
+    parser.validFileFormat = True
+    parser.htmlFlag = False
+    parser.laTeXFlag = False
+    parser.inParagraph = False
+    parser.paragraphLen = 0
+    parser.each = False
+    parser.list = []
+    parser.iteration = 0
+    program = sys.stdin.read() # mudar para read(file)
+    parser.parse(program)
+    if parser.htmlFlag:
+        fileName = re.sub(r'(.*)\..*', r'\1.html', file.name)
+    elif parser.laTeXFlag:
+        fileName = re.sub(r'(.*)\..*', r'\1.tex', file.name)
+    if parser.validFileFormat == False:
+        print("Error: Invalid File Format. Please check the help options with -h")
+    elif parser.success:
+        print("All worked out! Check your document: " + fileName)
+    else:
+        print("Programa Inválido... Corrija e tente novamente")
+    for item in reversed(sorted(dictionary.keys())):
+        html = html + "\t" * item + "</" + dictionary[item] + ">\n"
+        dictionary.pop(item)
+    # delete this line and write in file
+    print(html)
+

@@ -16,12 +16,19 @@ html
 		.display-box
 		#myOnlyDiv
 		input(type=1)
+		this(styles=myClasses) Don't know if this works
+		p{
+			color: red;
+			text-decoration: underline;
+		}
 		div.my-div(class=2)
 	body
 		ul
 			li This is item 1
 			li This is item 2
 			li this is item 3
+		each i in [1,2,3,4,5,6]
+			
 		p.big-para.
 			This is a big paragraph
 			It's just a paragraph but with a class
