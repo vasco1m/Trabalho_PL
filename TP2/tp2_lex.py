@@ -2,7 +2,7 @@
 import ply.lex as lex
 
 
-literals = ['.', '(', '{', '}', ':', '[', ']']
+literals = ['.', '(', '{', '}', ':', '[', ']', '+', '-', '*', '/']
 tokens = ['doctype', 'tab', 'str', 'dSign', 'hash', 'input', 'fp', 'equal', 'qStr',
         'comma', 'ppoint', 'apR', 'fpR', 'const', 'each', 'in', 'for', 'size', 'language']
 
@@ -82,13 +82,13 @@ def t_each(t):
     return t
 
 
-def t_in(t):
-    r'in'
+def t_for(t):
+    r'for'
     return t
 
 
-def t_for(t):
-    r'for'
+def t_in(t):
+    r'in'
     return t
 
 

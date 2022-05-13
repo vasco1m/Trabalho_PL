@@ -28,8 +28,11 @@ html
 			li This is item 2
 			li this is item 3
 		each i in [1,2,3,4,5,6]
-			
+			$p=i
+			$w=i+1
 		p.big-para.
 			This is a big paragraph
 			It's just a paragraph but with a class
+		for x in myList
+			$z=x
 		h3 hamburger

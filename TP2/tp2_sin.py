@@ -18,6 +18,8 @@ def p_Command(p):
     "Command : Indents str"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + '\n'
         flag = False
@@ -41,6 +43,8 @@ def p_Command_point(p):
     "Command : Indents ppoint"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + '\n'
         flag = False
@@ -66,6 +70,8 @@ def p_Command_pointClass(p):
     "Command : Indents str '.' str '.'"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + '\n'
         flag = False
@@ -92,6 +98,8 @@ def p_Command_bracketsOpen(p):
     "Command : Indents str '{'"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + '\n'
         flag = False
@@ -117,6 +125,8 @@ def p_Command_bracketsClose(p):
     "Command : Indents '}'"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + '\n'
         flag = False
@@ -134,6 +144,8 @@ def p_Command_pointClassp(p):
     "Command : Indents ppoint str '.'"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + '\n'
         flag = False
@@ -160,6 +172,8 @@ def p_Command_divClass(p):
     "Command : Indents '.' str"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + '\n'
         flag = False
@@ -185,6 +199,8 @@ def p_Command_divHash(p):
     "Command : Indents hash str"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + '\n'
         flag = False
@@ -210,6 +226,8 @@ def p_Command_input(p):
     "Command : Indents input Atribs fp"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + " " + p[3] + p[4] + '\n'
         flag = False
@@ -233,6 +251,8 @@ def p_Command_Atrib(p):
     "Command : Indents str '(' Atrib fp"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + " " + p[3] + p[4] + '\n'
         flag = False
@@ -256,6 +276,8 @@ def p_Command_AtribStr(p):
     "Command : Indents str '(' Atrib fp STR"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + " " + p[3] + p[4] + p[5] + p[6] + '\n'
         flag = False
@@ -279,6 +301,8 @@ def p_Command_atribClass(p):
     "Command : Indents str '.' str '(' str equal str fp"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + '\n'
         flag = False
@@ -306,6 +330,8 @@ def p_Command_list(p):
     "Command : Indents const str equal apR LqStr fpR"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + p[3] + p[4] + p[5] + p[6] + p[7] + '\n'
         flag = False
@@ -321,6 +347,8 @@ def p_Command_titule(p):
     "Command : Indents str STR"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + " " + p[3] + '\n'
         flag = False
@@ -340,11 +368,12 @@ def p_Command_titule(p):
     return p
 
 
-# INCOMPLETO!!!!!!!!!
-def p_Command_each(p):
-    "Command : Indents each str in '[' STR ']'"
+def p_Command_eachFor(p):
+    "Command : Indents Cycle str in Range"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + " " + p[3] + p[4] + p[5] + p[6] + '\n'
         flag = False
@@ -357,10 +386,176 @@ def p_Command_each(p):
                 html = html + "\t" * it + "</" + dictionary[it] + ">\n"
                 dictionary.pop(it)
         if dictionary.keys().__contains__(p[1]):
-            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + " " + p[4] + ">" + p[6] + "</" + p[2] + ">\n"
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n"
             dictionary.pop(p[1])
-        else:
-            html = html + "\t" * p[1] + "<" + p[2] + " " + p[4] + ">" + p[6] + "</" + p[2] + ">\n"
+        parser.eachIterator = p[3]
+        parser.eachTabs = p[1]
+        parser.eachFlag = True
+    return p
+
+
+def p_Command_CycleLine(p):
+    "Command : Indents dSign str equal Op"
+    parser.eachVar.append(p[3])
+    parser.each.append(p[5])
+    parser.eachLen += 1
+
+
+def matrixSum(p1, p2):
+    if isinstance(p1,int):
+        if isinstance(p2,int):
+            return p1 + p2
+        elif isinstance(p2,list):
+            res = []
+            for elem in p2:
+                res.append(elem + p1)
+            return res
+    elif isinstance(p1,list):
+        if isinstance(p2,int):
+            res = []
+            for elem in p1:
+                res.append(elem + p2)
+            return res
+        elif isinstance(p2,list):
+            res = []
+            i = 0
+            for elem in p2:
+                res.append(elem + p1[i])
+                i += 1
+            return res
+
+
+def matrixSub(p1, p2):
+    if isinstance(p1,int):
+        if isinstance(p2,int):
+            return p1 - p2
+        elif isinstance(p2,list):
+            res = []
+            for elem in p2:
+                res.append(p1 - elem)
+            return res
+    elif isinstance(p1,list):
+        if isinstance(p2,int):
+            res = []
+            for elem in p1:
+                res.append(elem - p2)
+            return res
+        elif isinstance(p2,list):
+            res = []
+            i = 0
+            for elem in p2:
+                res.append(p1[i] - elem)
+                i += 1
+            return res
+
+
+def matrixMul(p1, p2):
+    if isinstance(p1,int):
+        if isinstance(p2,int):
+            return p1 * p2
+        elif isinstance(p2,list):
+            res = []
+            for elem in p2:
+                res.append(p1 * elem)
+            return res
+    elif isinstance(p1,list):
+        if isinstance(p2,int):
+            res = []
+            for elem in p1:
+                res.append(elem * p2)
+            return res
+        elif isinstance(p2,list):
+            res = []
+            i = 0
+            for elem in p2:
+                res.append(p1[i] * elem)
+                i += 1
+            return res
+
+
+def matrixDiv(p1, p2):
+    if isinstance(p1,int):
+        if isinstance(p2,int):
+            return p1 / p2
+        elif isinstance(p2,list):
+            res = []
+            for elem in p2:
+                res.append(p1 / elem)
+            return res
+    elif isinstance(p1,list):
+        if isinstance(p2,int):
+            res = []
+            for elem in p1:
+                res.append(elem / p2)
+            return res
+        elif isinstance(p2,list):
+            res = []
+            i = 0
+            for elem in p2:
+                res.append(p1[i] / elem)
+                i += 1
+            return res
+
+
+def p_Op_sum(p):
+    "Op : Op '+' Op"
+    p[0] = matrixSum(p[1],p[3])
+    return p
+
+
+def p_Op_sub(p):
+    "Op : Op '-' Op"
+    p[0] = matrixSub(p[1],p[3])
+    return p
+
+
+def p_Op_mul(p):
+    "Op : Op '*' Op"
+    p[0] = matrixMul(p[1],p[3])
+    return p
+
+
+def p_Op_div(p):
+    "Op : Op '/' Op"
+    p[0] = matrixDiv(p[1],p[3])
+    return p
+
+
+def p_Op_val(p):
+    "Op : str"
+    if p[1].isdigit():
+        p[0] = int(p[1])
+    elif parser.eachIterator == p[1]:
+        p[0] = parser.eachRange
+    return p
+
+
+def p_eachFor_each(p):
+    "Cycle : each"
+    return p
+
+
+def p_eachFor_for(p):
+    "Cycle : for"
+    return p
+
+
+def p_Range_list(p):
+    "Range : apR STR fpR"
+    range = p[2].split(",")
+    i = 0
+    for elem in range:
+        parser.eachRange.append(int(elem))
+    parser.eachLen = i
+    return p
+
+
+def p_Range_var(p):
+    "Range : str"
+    if htmlDict.__contains__(p[1]):
+        parser.eachRange = htmlDict[p[1]]
+    else:
+        parser.eachRange = None
     return p
 
 
@@ -368,6 +563,8 @@ def p_Command_class(p):
     "Command : Indents str hash str STR"
     global html
     flag = True
+    if parser.eachFlag:
+        writeEach()
     if parser.inParagraph and int(p[1]) > parser.paragraphLen:
         html = html + '\t' * p[1] + p[2] + p[3] + p[4] + p[5] + '\n'
         flag = False
@@ -392,6 +589,7 @@ def p_Command_doctype(p):
     return p
 
 
+# APAGAR!!
 def p_Command_doctypeLatexCommands(p):
     "Command : doctype str size str language str"
     global html
@@ -490,9 +688,25 @@ def p_error(p):
 
 def helpCommand():
     return """Hi, I'm here to help.
-This program is a parser from simple files to HTML or LaTeX, to use it you have to insert the header \"doctype html\" or \"doctype LaTeX\", and write your code in a very simple way.
+This program is a parser from simple files to HTML, to use it you have to insert the header \"doctype html\", and write your code in a very simple way.
 Use tabs to indent your code and create nested resources.
 \n\n\nVersion: 1.0"""
+
+
+def writeEach():
+    global html
+    for i in range(0, len(parser.eachRange)):
+        j = 0
+        for elem in parser.each:
+            html = html + "\t" * parser.eachTabs + "<" + parser.eachVar[j] + ">" + str(elem[i]) + "</" + parser.eachVar[j] + ">\n"
+            j += 1
+    parser.eachFlag = False
+    parser.eachVar = []
+    parser.eachTabs = 0
+    parser.each = []
+    parser.eachLen = 0
+    parser.eachRange = []
+        
 
 
 # Build the parser
@@ -500,6 +714,7 @@ parser = yacc.yacc()
 
 dictionary = {}
 htmlDict = {"1":"aaaa", "2":"bbbb", "3":"cccc"}
+htmlDict['myList'] = ['Ana', 'João', 'Luís', 'Rita']
 html = ""
 
 import sys
@@ -520,7 +735,14 @@ else:
     parser.each = False
     parser.list = []
     parser.iteration = 0
-    program = sys.stdin.read() # mudar para read(file)
+    parser.each = []
+    parser.eachLen = 0
+    parser.eachFlag = False
+    parser.eachVar = []
+    parser.eachTabs = 0
+    parser.eachRange = []
+    parser.eachIterator = ""
+    program = file.read()
     parser.parse(program)
     if parser.htmlFlag:
         fileName = re.sub(r'(.*)\..*', r'\1.html', file.name)
@@ -535,6 +757,6 @@ else:
     for item in reversed(sorted(dictionary.keys())):
         html = html + "\t" * item + "</" + dictionary[item] + ">\n"
         dictionary.pop(item)
-    # delete this line and write in file
-    print(html)
+    endFile = open(fileName, "w")
+    endFile.write(html)
 
