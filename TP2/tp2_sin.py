@@ -343,6 +343,31 @@ def p_Command_list(p):
     return p
 
 
+def p_Command_href(p):
+    "Command : Indents href link STR"
+    global html
+    flag = True
+    if parser.eachFlag:
+        writeEach()
+    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
+        html = html + '\t' * p[1] + p[2] + " " + p[3] + '\n'
+        flag = False
+    elif p[1] <= parser.paragraphLen:
+        parser.inParagraph = False
+        parser.paragraphLen = 0
+    if flag:
+        for it in reversed(sorted(dictionary.keys())):
+            if it > p[1]:
+                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
+                dictionary.pop(it)
+        if dictionary.keys().__contains__(p[1]):
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + p[3] + ">" + p[4] + "</a>\n"
+            dictionary.pop(p[1])
+        else:
+            html = html + "\t" * p[1] + "<" + p[2] + p[3] + ">" + p[4] + "</a>\n"
+    return p
+
+
 def p_Command_titule(p):
     "Command : Indents str STR"
     global html

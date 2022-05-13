@@ -3,7 +3,7 @@ import ply.lex as lex
 
 
 literals = ['.', '(', '{', '}', ':', '[', ']', '+', '-', '*', '/']
-tokens = ['doctype', 'tab', 'str', 'dSign', 'hash', 'input', 'fp', 'equal', 'qStr',
+tokens = ['doctype', 'tab', 'str', 'dSign', 'hash', 'input', 'fp', 'equal', 'qStr', 'href', 'link',
         'comma', 'ppoint', 'apR', 'fpR', 'const', 'each', 'in', 'for', 'size', 'language']
 
 
@@ -89,6 +89,16 @@ def t_for(t):
 
 def t_in(t):
     r'in'
+    return t
+
+
+def t_href(t):
+    r'a\ href='
+    return t
+
+
+def t_link(t):
+    r'\"[\w\:\.\/]+\"'
     return t
 
 

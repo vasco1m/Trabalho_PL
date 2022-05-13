@@ -18,79 +18,82 @@ Rule 12    Command -> Indents str ( Atrib fp
 Rule 13    Command -> Indents str ( Atrib fp STR
 Rule 14    Command -> Indents str . str ( str equal str fp
 Rule 15    Command -> Indents const str equal apR LqStr fpR
-Rule 16    Command -> Indents str STR
-Rule 17    Command -> Indents Cycle str in Range
-Rule 18    Command -> Indents dSign str equal Op
-Rule 19    Op -> Op + Op
-Rule 20    Op -> Op - Op
-Rule 21    Op -> Op * Op
-Rule 22    Op -> Op / Op
-Rule 23    Op -> str
-Rule 24    Cycle -> each
-Rule 25    Cycle -> for
-Rule 26    Range -> apR STR fpR
-Rule 27    Range -> str
-Rule 28    Command -> Indents str hash str STR
-Rule 29    Command -> doctype str
-Rule 30    Command -> doctype str size str language str
-Rule 31    LqStr -> LqStr comma qStr
-Rule 32    LqStr -> qStr
-Rule 33    Atribs -> Atribs Atrib
-Rule 34    Atribs -> Atrib
-Rule 35    Atrib -> str equal qStr
-Rule 36    Atrib -> str equal str
-Rule 37    STR -> STR str
-Rule 38    STR -> dSign str dSign
-Rule 39    STR -> dSign str . str dSign
-Rule 40    STR -> str
-Rule 41    Indents -> Indents Indent
-Rule 42    Indents -> <empty>
-Rule 43    Indent -> tab
+Rule 16    Command -> Indents href link STR
+Rule 17    Command -> Indents str STR
+Rule 18    Command -> Indents Cycle str in Range
+Rule 19    Command -> Indents dSign str equal Op
+Rule 20    Op -> Op + Op
+Rule 21    Op -> Op - Op
+Rule 22    Op -> Op * Op
+Rule 23    Op -> Op / Op
+Rule 24    Op -> str
+Rule 25    Cycle -> each
+Rule 26    Cycle -> for
+Rule 27    Range -> apR STR fpR
+Rule 28    Range -> str
+Rule 29    Command -> Indents str hash str STR
+Rule 30    Command -> doctype str
+Rule 31    Command -> doctype str size str language str
+Rule 32    LqStr -> LqStr comma qStr
+Rule 33    LqStr -> qStr
+Rule 34    Atribs -> Atribs Atrib
+Rule 35    Atribs -> Atrib
+Rule 36    Atrib -> str equal qStr
+Rule 37    Atrib -> str equal str
+Rule 38    STR -> STR str
+Rule 39    STR -> dSign str dSign
+Rule 40    STR -> dSign str . str dSign
+Rule 41    STR -> str
+Rule 42    Indents -> Indents Indent
+Rule 43    Indents -> <empty>
+Rule 44    Indent -> tab
 
 Terminals, with rules where they appear
 
 (                    : 12 13 14
-*                    : 21
-+                    : 19
--                    : 20
-.                    : 5 5 8 9 14 39
-/                    : 22
-apR                  : 15 26
-comma                : 31
+*                    : 22
++                    : 20
+-                    : 21
+.                    : 5 5 8 9 14 40
+/                    : 23
+apR                  : 15 27
+comma                : 32
 const                : 15
-dSign                : 18 38 38 39 39
-doctype              : 29 30
-each                 : 24
-equal                : 14 15 18 35 36
+dSign                : 19 39 39 40 40
+doctype              : 30 31
+each                 : 25
+equal                : 14 15 19 36 37
 error                : 
-for                  : 25
+for                  : 26
 fp                   : 11 12 13 14
-fpR                  : 15 26
-hash                 : 10 28
-in                   : 17
+fpR                  : 15 27
+hash                 : 10 29
+href                 : 16
+in                   : 18
 input                : 11
-language             : 30
+language             : 31
+link                 : 16
 ppoint               : 4 8
-qStr                 : 31 32 35
-size                 : 30
-str                  : 3 5 5 6 8 9 10 12 13 14 14 14 14 15 16 17 18 23 27 28 28 29 30 30 30 35 36 36 37 38 39 39 40
-tab                  : 43
+qStr                 : 32 33 36
+size                 : 31
+str                  : 3 5 5 6 8 9 10 12 13 14 14 14 14 15 17 18 19 24 28 29 29 30 31 31 31 36 37 37 38 39 40 40 41
+tab                  : 44
 {                    : 6
 }                    : 7
 
 Nonterminals, with rules where they appear
 
-Atrib                : 12 13 33 34
-Atribs               : 11 33
+Atrib                : 12 13 34 35
+Atribs               : 11 34
 Command              : 1 2
 Commands             : 1 0
-Cycle                : 17
-Indent               : 41
-Indents              : 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 28 41
-LqStr                : 15 31
-Op                   : 18 19 19 20 20 21 21 22 22
-Range                : 17
-STR                  : 13 16 26 28 37
+Cycle                : 18
+Indent               : 42
+Indents              : 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 29 42
+LqStr                : 15 32
+Op                   : 19 20 20 21 21 22 22 23 23
+Range                : 18
+STR                  : 13 16 17 27 29 38
 
 Parsing method: LALR
 
@@ -112,27 +115,29 @@ state 0
     (13) Command -> . Indents str ( Atrib fp STR
     (14) Command -> . Indents str . str ( str equal str fp
     (15) Command -> . Indents const str equal apR LqStr fpR
-    (16) Command -> . Indents str STR
-    (17) Command -> . Indents Cycle str in Range
-    (18) Command -> . Indents dSign str equal Op
-    (28) Command -> . Indents str hash str STR
-    (29) Command -> . doctype str
-    (30) Command -> . doctype str size str language str
-    (41) Indents -> . Indents Indent
-    (42) Indents -> .
+    (16) Command -> . Indents href link STR
+    (17) Command -> . Indents str STR
+    (18) Command -> . Indents Cycle str in Range
+    (19) Command -> . Indents dSign str equal Op
+    (29) Command -> . Indents str hash str STR
+    (30) Command -> . doctype str
+    (31) Command -> . doctype str size str language str
+    (42) Indents -> . Indents Indent
+    (43) Indents -> .
 
     doctype         shift and go to state 4
-    str             reduce using rule 42 (Indents -> .)
-    ppoint          reduce using rule 42 (Indents -> .)
-    }               reduce using rule 42 (Indents -> .)
-    .               reduce using rule 42 (Indents -> .)
-    hash            reduce using rule 42 (Indents -> .)
-    input           reduce using rule 42 (Indents -> .)
-    const           reduce using rule 42 (Indents -> .)
-    dSign           reduce using rule 42 (Indents -> .)
-    each            reduce using rule 42 (Indents -> .)
-    for             reduce using rule 42 (Indents -> .)
-    tab             reduce using rule 42 (Indents -> .)
+    str             reduce using rule 43 (Indents -> .)
+    ppoint          reduce using rule 43 (Indents -> .)
+    }               reduce using rule 43 (Indents -> .)
+    .               reduce using rule 43 (Indents -> .)
+    hash            reduce using rule 43 (Indents -> .)
+    input           reduce using rule 43 (Indents -> .)
+    const           reduce using rule 43 (Indents -> .)
+    href            reduce using rule 43 (Indents -> .)
+    dSign           reduce using rule 43 (Indents -> .)
+    each            reduce using rule 43 (Indents -> .)
+    for             reduce using rule 43 (Indents -> .)
+    tab             reduce using rule 43 (Indents -> .)
 
     Commands                       shift and go to state 1
     Command                        shift and go to state 2
@@ -155,27 +160,29 @@ state 1
     (13) Command -> . Indents str ( Atrib fp STR
     (14) Command -> . Indents str . str ( str equal str fp
     (15) Command -> . Indents const str equal apR LqStr fpR
-    (16) Command -> . Indents str STR
-    (17) Command -> . Indents Cycle str in Range
-    (18) Command -> . Indents dSign str equal Op
-    (28) Command -> . Indents str hash str STR
-    (29) Command -> . doctype str
-    (30) Command -> . doctype str size str language str
-    (41) Indents -> . Indents Indent
-    (42) Indents -> .
+    (16) Command -> . Indents href link STR
+    (17) Command -> . Indents str STR
+    (18) Command -> . Indents Cycle str in Range
+    (19) Command -> . Indents dSign str equal Op
+    (29) Command -> . Indents str hash str STR
+    (30) Command -> . doctype str
+    (31) Command -> . doctype str size str language str
+    (42) Indents -> . Indents Indent
+    (43) Indents -> .
 
     doctype         shift and go to state 4
-    str             reduce using rule 42 (Indents -> .)
-    ppoint          reduce using rule 42 (Indents -> .)
-    }               reduce using rule 42 (Indents -> .)
-    .               reduce using rule 42 (Indents -> .)
-    hash            reduce using rule 42 (Indents -> .)
-    input           reduce using rule 42 (Indents -> .)
-    const           reduce using rule 42 (Indents -> .)
-    dSign           reduce using rule 42 (Indents -> .)
-    each            reduce using rule 42 (Indents -> .)
-    for             reduce using rule 42 (Indents -> .)
-    tab             reduce using rule 42 (Indents -> .)
+    str             reduce using rule 43 (Indents -> .)
+    ppoint          reduce using rule 43 (Indents -> .)
+    }               reduce using rule 43 (Indents -> .)
+    .               reduce using rule 43 (Indents -> .)
+    hash            reduce using rule 43 (Indents -> .)
+    input           reduce using rule 43 (Indents -> .)
+    const           reduce using rule 43 (Indents -> .)
+    href            reduce using rule 43 (Indents -> .)
+    dSign           reduce using rule 43 (Indents -> .)
+    each            reduce using rule 43 (Indents -> .)
+    for             reduce using rule 43 (Indents -> .)
+    tab             reduce using rule 43 (Indents -> .)
 
     Command                        shift and go to state 5
     Indents                        shift and go to state 3
@@ -193,6 +200,7 @@ state 2
     hash            reduce using rule 2 (Commands -> Command .)
     input           reduce using rule 2 (Commands -> Command .)
     const           reduce using rule 2 (Commands -> Command .)
+    href            reduce using rule 2 (Commands -> Command .)
     dSign           reduce using rule 2 (Commands -> Command .)
     each            reduce using rule 2 (Commands -> Command .)
     for             reduce using rule 2 (Commands -> Command .)
@@ -214,14 +222,15 @@ state 3
     (13) Command -> Indents . str ( Atrib fp STR
     (14) Command -> Indents . str . str ( str equal str fp
     (15) Command -> Indents . const str equal apR LqStr fpR
-    (16) Command -> Indents . str STR
-    (17) Command -> Indents . Cycle str in Range
-    (18) Command -> Indents . dSign str equal Op
-    (28) Command -> Indents . str hash str STR
-    (41) Indents -> Indents . Indent
-    (24) Cycle -> . each
-    (25) Cycle -> . for
-    (43) Indent -> . tab
+    (16) Command -> Indents . href link STR
+    (17) Command -> Indents . str STR
+    (18) Command -> Indents . Cycle str in Range
+    (19) Command -> Indents . dSign str equal Op
+    (29) Command -> Indents . str hash str STR
+    (42) Indents -> Indents . Indent
+    (25) Cycle -> . each
+    (26) Cycle -> . for
+    (44) Indent -> . tab
 
     str             shift and go to state 6
     ppoint          shift and go to state 7
@@ -230,20 +239,21 @@ state 3
     hash            shift and go to state 10
     input           shift and go to state 11
     const           shift and go to state 12
-    dSign           shift and go to state 14
-    each            shift and go to state 16
-    for             shift and go to state 17
-    tab             shift and go to state 18
+    href            shift and go to state 13
+    dSign           shift and go to state 15
+    each            shift and go to state 17
+    for             shift and go to state 18
+    tab             shift and go to state 19
 
-    Cycle                          shift and go to state 13
-    Indent                         shift and go to state 15
+    Cycle                          shift and go to state 14
+    Indent                         shift and go to state 16
 
 state 4
 
-    (29) Command -> doctype . str
-    (30) Command -> doctype . str size str language str
+    (30) Command -> doctype . str
+    (31) Command -> doctype . str size str language str
 
-    str             shift and go to state 19
+    str             shift and go to state 20
 
 
 state 5
@@ -259,6 +269,7 @@ state 5
     hash            reduce using rule 1 (Commands -> Commands Command .)
     input           reduce using rule 1 (Commands -> Commands Command .)
     const           reduce using rule 1 (Commands -> Commands Command .)
+    href            reduce using rule 1 (Commands -> Commands Command .)
     dSign           reduce using rule 1 (Commands -> Commands Command .)
     each            reduce using rule 1 (Commands -> Commands Command .)
     for             reduce using rule 1 (Commands -> Commands Command .)
@@ -273,12 +284,12 @@ state 6
     (12) Command -> Indents str . ( Atrib fp
     (13) Command -> Indents str . ( Atrib fp STR
     (14) Command -> Indents str . . str ( str equal str fp
-    (16) Command -> Indents str . STR
-    (28) Command -> Indents str . hash str STR
-    (37) STR -> . STR str
-    (38) STR -> . dSign str dSign
-    (39) STR -> . dSign str . str dSign
-    (40) STR -> . str
+    (17) Command -> Indents str . STR
+    (29) Command -> Indents str . hash str STR
+    (38) STR -> . STR str
+    (39) STR -> . dSign str dSign
+    (40) STR -> . dSign str . str dSign
+    (41) STR -> . str
 
   ! shift/reduce conflict for . resolved as shift
   ! shift/reduce conflict for hash resolved as shift
@@ -290,22 +301,23 @@ state 6
     }               reduce using rule 3 (Command -> Indents str .)
     input           reduce using rule 3 (Command -> Indents str .)
     const           reduce using rule 3 (Command -> Indents str .)
+    href            reduce using rule 3 (Command -> Indents str .)
     each            reduce using rule 3 (Command -> Indents str .)
     for             reduce using rule 3 (Command -> Indents str .)
     tab             reduce using rule 3 (Command -> Indents str .)
-    .               shift and go to state 21
-    {               shift and go to state 22
-    (               shift and go to state 23
-    hash            shift and go to state 25
-    dSign           shift and go to state 26
-    str             shift and go to state 20
+    .               shift and go to state 22
+    {               shift and go to state 23
+    (               shift and go to state 24
+    hash            shift and go to state 26
+    dSign           shift and go to state 27
+    str             shift and go to state 21
 
   ! str             [ reduce using rule 3 (Command -> Indents str .) ]
   ! .               [ reduce using rule 3 (Command -> Indents str .) ]
   ! hash            [ reduce using rule 3 (Command -> Indents str .) ]
   ! dSign           [ reduce using rule 3 (Command -> Indents str .) ]
 
-    STR                            shift and go to state 24
+    STR                            shift and go to state 25
 
 state 7
 
@@ -321,11 +333,12 @@ state 7
     hash            reduce using rule 4 (Command -> Indents ppoint .)
     input           reduce using rule 4 (Command -> Indents ppoint .)
     const           reduce using rule 4 (Command -> Indents ppoint .)
+    href            reduce using rule 4 (Command -> Indents ppoint .)
     dSign           reduce using rule 4 (Command -> Indents ppoint .)
     each            reduce using rule 4 (Command -> Indents ppoint .)
     for             reduce using rule 4 (Command -> Indents ppoint .)
     tab             reduce using rule 4 (Command -> Indents ppoint .)
-    str             shift and go to state 27
+    str             shift and go to state 28
 
   ! str             [ reduce using rule 4 (Command -> Indents ppoint .) ]
 
@@ -334,7 +347,7 @@ state 8
 
     (9) Command -> Indents . . str
 
-    str             shift and go to state 28
+    str             shift and go to state 29
 
 
 state 9
@@ -350,6 +363,7 @@ state 9
     hash            reduce using rule 7 (Command -> Indents } .)
     input           reduce using rule 7 (Command -> Indents } .)
     const           reduce using rule 7 (Command -> Indents } .)
+    href            reduce using rule 7 (Command -> Indents } .)
     dSign           reduce using rule 7 (Command -> Indents } .)
     each            reduce using rule 7 (Command -> Indents } .)
     for             reduce using rule 7 (Command -> Indents } .)
@@ -360,141 +374,152 @@ state 10
 
     (10) Command -> Indents hash . str
 
-    str             shift and go to state 29
+    str             shift and go to state 30
 
 
 state 11
 
     (11) Command -> Indents input . Atribs fp
-    (33) Atribs -> . Atribs Atrib
-    (34) Atribs -> . Atrib
-    (35) Atrib -> . str equal qStr
-    (36) Atrib -> . str equal str
+    (34) Atribs -> . Atribs Atrib
+    (35) Atribs -> . Atrib
+    (36) Atrib -> . str equal qStr
+    (37) Atrib -> . str equal str
 
-    str             shift and go to state 32
+    str             shift and go to state 33
 
-    Atribs                         shift and go to state 30
-    Atrib                          shift and go to state 31
+    Atribs                         shift and go to state 31
+    Atrib                          shift and go to state 32
 
 state 12
 
     (15) Command -> Indents const . str equal apR LqStr fpR
 
-    str             shift and go to state 33
+    str             shift and go to state 34
 
 
 state 13
 
-    (17) Command -> Indents Cycle . str in Range
+    (16) Command -> Indents href . link STR
 
-    str             shift and go to state 34
+    link            shift and go to state 35
 
 
 state 14
 
-    (18) Command -> Indents dSign . str equal Op
+    (18) Command -> Indents Cycle . str in Range
 
-    str             shift and go to state 35
+    str             shift and go to state 36
 
 
 state 15
 
-    (41) Indents -> Indents Indent .
-
-    str             reduce using rule 41 (Indents -> Indents Indent .)
-    ppoint          reduce using rule 41 (Indents -> Indents Indent .)
-    }               reduce using rule 41 (Indents -> Indents Indent .)
-    .               reduce using rule 41 (Indents -> Indents Indent .)
-    hash            reduce using rule 41 (Indents -> Indents Indent .)
-    input           reduce using rule 41 (Indents -> Indents Indent .)
-    const           reduce using rule 41 (Indents -> Indents Indent .)
-    dSign           reduce using rule 41 (Indents -> Indents Indent .)
-    each            reduce using rule 41 (Indents -> Indents Indent .)
-    for             reduce using rule 41 (Indents -> Indents Indent .)
-    tab             reduce using rule 41 (Indents -> Indents Indent .)
-
-
-state 16
-
-    (24) Cycle -> each .
-
-    str             reduce using rule 24 (Cycle -> each .)
-
-
-state 17
-
-    (25) Cycle -> for .
-
-    str             reduce using rule 25 (Cycle -> for .)
-
-
-state 18
-
-    (43) Indent -> tab .
-
-    str             reduce using rule 43 (Indent -> tab .)
-    ppoint          reduce using rule 43 (Indent -> tab .)
-    }               reduce using rule 43 (Indent -> tab .)
-    .               reduce using rule 43 (Indent -> tab .)
-    hash            reduce using rule 43 (Indent -> tab .)
-    input           reduce using rule 43 (Indent -> tab .)
-    const           reduce using rule 43 (Indent -> tab .)
-    dSign           reduce using rule 43 (Indent -> tab .)
-    each            reduce using rule 43 (Indent -> tab .)
-    for             reduce using rule 43 (Indent -> tab .)
-    tab             reduce using rule 43 (Indent -> tab .)
-
-
-state 19
-
-    (29) Command -> doctype str .
-    (30) Command -> doctype str . size str language str
-
-    doctype         reduce using rule 29 (Command -> doctype str .)
-    $end            reduce using rule 29 (Command -> doctype str .)
-    str             reduce using rule 29 (Command -> doctype str .)
-    ppoint          reduce using rule 29 (Command -> doctype str .)
-    }               reduce using rule 29 (Command -> doctype str .)
-    .               reduce using rule 29 (Command -> doctype str .)
-    hash            reduce using rule 29 (Command -> doctype str .)
-    input           reduce using rule 29 (Command -> doctype str .)
-    const           reduce using rule 29 (Command -> doctype str .)
-    dSign           reduce using rule 29 (Command -> doctype str .)
-    each            reduce using rule 29 (Command -> doctype str .)
-    for             reduce using rule 29 (Command -> doctype str .)
-    tab             reduce using rule 29 (Command -> doctype str .)
-    size            shift and go to state 36
-
-
-state 20
-
-    (40) STR -> str .
-
-    str             reduce using rule 40 (STR -> str .)
-    doctype         reduce using rule 40 (STR -> str .)
-    $end            reduce using rule 40 (STR -> str .)
-    ppoint          reduce using rule 40 (STR -> str .)
-    }               reduce using rule 40 (STR -> str .)
-    .               reduce using rule 40 (STR -> str .)
-    hash            reduce using rule 40 (STR -> str .)
-    input           reduce using rule 40 (STR -> str .)
-    const           reduce using rule 40 (STR -> str .)
-    dSign           reduce using rule 40 (STR -> str .)
-    each            reduce using rule 40 (STR -> str .)
-    for             reduce using rule 40 (STR -> str .)
-    tab             reduce using rule 40 (STR -> str .)
-    fpR             reduce using rule 40 (STR -> str .)
-
-
-state 21
-
-    (5) Command -> Indents str . . str .
-    (14) Command -> Indents str . . str ( str equal str fp
+    (19) Command -> Indents dSign . str equal Op
 
     str             shift and go to state 37
 
 
+state 16
+
+    (42) Indents -> Indents Indent .
+
+    str             reduce using rule 42 (Indents -> Indents Indent .)
+    ppoint          reduce using rule 42 (Indents -> Indents Indent .)
+    }               reduce using rule 42 (Indents -> Indents Indent .)
+    .               reduce using rule 42 (Indents -> Indents Indent .)
+    hash            reduce using rule 42 (Indents -> Indents Indent .)
+    input           reduce using rule 42 (Indents -> Indents Indent .)
+    const           reduce using rule 42 (Indents -> Indents Indent .)
+    href            reduce using rule 42 (Indents -> Indents Indent .)
+    dSign           reduce using rule 42 (Indents -> Indents Indent .)
+    each            reduce using rule 42 (Indents -> Indents Indent .)
+    for             reduce using rule 42 (Indents -> Indents Indent .)
+    tab             reduce using rule 42 (Indents -> Indents Indent .)
+
+
+state 17
+
+    (25) Cycle -> each .
+
+    str             reduce using rule 25 (Cycle -> each .)
+
+
+state 18
+
+    (26) Cycle -> for .
+
+    str             reduce using rule 26 (Cycle -> for .)
+
+
+state 19
+
+    (44) Indent -> tab .
+
+    str             reduce using rule 44 (Indent -> tab .)
+    ppoint          reduce using rule 44 (Indent -> tab .)
+    }               reduce using rule 44 (Indent -> tab .)
+    .               reduce using rule 44 (Indent -> tab .)
+    hash            reduce using rule 44 (Indent -> tab .)
+    input           reduce using rule 44 (Indent -> tab .)
+    const           reduce using rule 44 (Indent -> tab .)
+    href            reduce using rule 44 (Indent -> tab .)
+    dSign           reduce using rule 44 (Indent -> tab .)
+    each            reduce using rule 44 (Indent -> tab .)
+    for             reduce using rule 44 (Indent -> tab .)
+    tab             reduce using rule 44 (Indent -> tab .)
+
+
+state 20
+
+    (30) Command -> doctype str .
+    (31) Command -> doctype str . size str language str
+
+    doctype         reduce using rule 30 (Command -> doctype str .)
+    $end            reduce using rule 30 (Command -> doctype str .)
+    str             reduce using rule 30 (Command -> doctype str .)
+    ppoint          reduce using rule 30 (Command -> doctype str .)
+    }               reduce using rule 30 (Command -> doctype str .)
+    .               reduce using rule 30 (Command -> doctype str .)
+    hash            reduce using rule 30 (Command -> doctype str .)
+    input           reduce using rule 30 (Command -> doctype str .)
+    const           reduce using rule 30 (Command -> doctype str .)
+    href            reduce using rule 30 (Command -> doctype str .)
+    dSign           reduce using rule 30 (Command -> doctype str .)
+    each            reduce using rule 30 (Command -> doctype str .)
+    for             reduce using rule 30 (Command -> doctype str .)
+    tab             reduce using rule 30 (Command -> doctype str .)
+    size            shift and go to state 38
+
+
+state 21
+
+    (41) STR -> str .
+
+    str             reduce using rule 41 (STR -> str .)
+    doctype         reduce using rule 41 (STR -> str .)
+    $end            reduce using rule 41 (STR -> str .)
+    ppoint          reduce using rule 41 (STR -> str .)
+    }               reduce using rule 41 (STR -> str .)
+    .               reduce using rule 41 (STR -> str .)
+    hash            reduce using rule 41 (STR -> str .)
+    input           reduce using rule 41 (STR -> str .)
+    const           reduce using rule 41 (STR -> str .)
+    href            reduce using rule 41 (STR -> str .)
+    dSign           reduce using rule 41 (STR -> str .)
+    each            reduce using rule 41 (STR -> str .)
+    for             reduce using rule 41 (STR -> str .)
+    tab             reduce using rule 41 (STR -> str .)
+    fpR             reduce using rule 41 (STR -> str .)
+
+
 state 22
+
+    (5) Command -> Indents str . . str .
+    (14) Command -> Indents str . . str ( str equal str fp
+
+    str             shift and go to state 39
+
+
+state 23
 
     (6) Command -> Indents str { .
 
@@ -507,69 +532,71 @@ state 22
     hash            reduce using rule 6 (Command -> Indents str { .)
     input           reduce using rule 6 (Command -> Indents str { .)
     const           reduce using rule 6 (Command -> Indents str { .)
+    href            reduce using rule 6 (Command -> Indents str { .)
     dSign           reduce using rule 6 (Command -> Indents str { .)
     each            reduce using rule 6 (Command -> Indents str { .)
     for             reduce using rule 6 (Command -> Indents str { .)
     tab             reduce using rule 6 (Command -> Indents str { .)
 
 
-state 23
+state 24
 
     (12) Command -> Indents str ( . Atrib fp
     (13) Command -> Indents str ( . Atrib fp STR
-    (35) Atrib -> . str equal qStr
-    (36) Atrib -> . str equal str
+    (36) Atrib -> . str equal qStr
+    (37) Atrib -> . str equal str
 
-    str             shift and go to state 32
+    str             shift and go to state 33
 
-    Atrib                          shift and go to state 38
-
-state 24
-
-    (16) Command -> Indents str STR .
-    (37) STR -> STR . str
-
-  ! shift/reduce conflict for str resolved as shift
-    doctype         reduce using rule 16 (Command -> Indents str STR .)
-    $end            reduce using rule 16 (Command -> Indents str STR .)
-    ppoint          reduce using rule 16 (Command -> Indents str STR .)
-    }               reduce using rule 16 (Command -> Indents str STR .)
-    .               reduce using rule 16 (Command -> Indents str STR .)
-    hash            reduce using rule 16 (Command -> Indents str STR .)
-    input           reduce using rule 16 (Command -> Indents str STR .)
-    const           reduce using rule 16 (Command -> Indents str STR .)
-    dSign           reduce using rule 16 (Command -> Indents str STR .)
-    each            reduce using rule 16 (Command -> Indents str STR .)
-    for             reduce using rule 16 (Command -> Indents str STR .)
-    tab             reduce using rule 16 (Command -> Indents str STR .)
-    str             shift and go to state 39
-
-  ! str             [ reduce using rule 16 (Command -> Indents str STR .) ]
-
+    Atrib                          shift and go to state 40
 
 state 25
 
-    (28) Command -> Indents str hash . str STR
+    (17) Command -> Indents str STR .
+    (38) STR -> STR . str
 
-    str             shift and go to state 40
+  ! shift/reduce conflict for str resolved as shift
+    doctype         reduce using rule 17 (Command -> Indents str STR .)
+    $end            reduce using rule 17 (Command -> Indents str STR .)
+    ppoint          reduce using rule 17 (Command -> Indents str STR .)
+    }               reduce using rule 17 (Command -> Indents str STR .)
+    .               reduce using rule 17 (Command -> Indents str STR .)
+    hash            reduce using rule 17 (Command -> Indents str STR .)
+    input           reduce using rule 17 (Command -> Indents str STR .)
+    const           reduce using rule 17 (Command -> Indents str STR .)
+    href            reduce using rule 17 (Command -> Indents str STR .)
+    dSign           reduce using rule 17 (Command -> Indents str STR .)
+    each            reduce using rule 17 (Command -> Indents str STR .)
+    for             reduce using rule 17 (Command -> Indents str STR .)
+    tab             reduce using rule 17 (Command -> Indents str STR .)
+    str             shift and go to state 41
+
+  ! str             [ reduce using rule 17 (Command -> Indents str STR .) ]
 
 
 state 26
 
-    (38) STR -> dSign . str dSign
-    (39) STR -> dSign . str . str dSign
+    (29) Command -> Indents str hash . str STR
 
-    str             shift and go to state 41
+    str             shift and go to state 42
 
 
 state 27
 
-    (8) Command -> Indents ppoint str . .
+    (39) STR -> dSign . str dSign
+    (40) STR -> dSign . str . str dSign
 
-    .               shift and go to state 42
+    str             shift and go to state 43
 
 
 state 28
+
+    (8) Command -> Indents ppoint str . .
+
+    .               shift and go to state 44
+
+
+state 29
 
     (9) Command -> Indents . str .
 
@@ -582,13 +609,14 @@ state 28
     hash            reduce using rule 9 (Command -> Indents . str .)
     input           reduce using rule 9 (Command -> Indents . str .)
     const           reduce using rule 9 (Command -> Indents . str .)
+    href            reduce using rule 9 (Command -> Indents . str .)
     dSign           reduce using rule 9 (Command -> Indents . str .)
     each            reduce using rule 9 (Command -> Indents . str .)
     for             reduce using rule 9 (Command -> Indents . str .)
     tab             reduce using rule 9 (Command -> Indents . str .)
 
 
-state 29
+state 30
 
     (10) Command -> Indents hash str .
 
@@ -601,128 +629,143 @@ state 29
     hash            reduce using rule 10 (Command -> Indents hash str .)
     input           reduce using rule 10 (Command -> Indents hash str .)
     const           reduce using rule 10 (Command -> Indents hash str .)
+    href            reduce using rule 10 (Command -> Indents hash str .)
     dSign           reduce using rule 10 (Command -> Indents hash str .)
     each            reduce using rule 10 (Command -> Indents hash str .)
     for             reduce using rule 10 (Command -> Indents hash str .)
     tab             reduce using rule 10 (Command -> Indents hash str .)
 
 
-state 30
-
-    (11) Command -> Indents input Atribs . fp
-    (33) Atribs -> Atribs . Atrib
-    (35) Atrib -> . str equal qStr
-    (36) Atrib -> . str equal str
-
-    fp              shift and go to state 43
-    str             shift and go to state 32
-
-    Atrib                          shift and go to state 44
-
 state 31
 
-    (34) Atribs -> Atrib .
+    (11) Command -> Indents input Atribs . fp
+    (34) Atribs -> Atribs . Atrib
+    (36) Atrib -> . str equal qStr
+    (37) Atrib -> . str equal str
 
-    fp              reduce using rule 34 (Atribs -> Atrib .)
-    str             reduce using rule 34 (Atribs -> Atrib .)
+    fp              shift and go to state 45
+    str             shift and go to state 33
 
+    Atrib                          shift and go to state 46
 
 state 32
 
-    (35) Atrib -> str . equal qStr
-    (36) Atrib -> str . equal str
+    (35) Atribs -> Atrib .
 
-    equal           shift and go to state 45
+    fp              reduce using rule 35 (Atribs -> Atrib .)
+    str             reduce using rule 35 (Atribs -> Atrib .)
 
 
 state 33
 
-    (15) Command -> Indents const str . equal apR LqStr fpR
+    (36) Atrib -> str . equal qStr
+    (37) Atrib -> str . equal str
 
-    equal           shift and go to state 46
+    equal           shift and go to state 47
 
 
 state 34
 
-    (17) Command -> Indents Cycle str . in Range
-
-    in              shift and go to state 47
-
-
-state 35
-
-    (18) Command -> Indents dSign str . equal Op
+    (15) Command -> Indents const str . equal apR LqStr fpR
 
     equal           shift and go to state 48
 
 
+state 35
+
+    (16) Command -> Indents href link . STR
+    (38) STR -> . STR str
+    (39) STR -> . dSign str dSign
+    (40) STR -> . dSign str . str dSign
+    (41) STR -> . str
+
+    dSign           shift and go to state 27
+    str             shift and go to state 21
+
+    STR                            shift and go to state 49
+
 state 36
 
-    (30) Command -> doctype str size . str language str
+    (18) Command -> Indents Cycle str . in Range
 
-    str             shift and go to state 49
+    in              shift and go to state 50
 
 
 state 37
 
-    (5) Command -> Indents str . str . .
-    (14) Command -> Indents str . str . ( str equal str fp
+    (19) Command -> Indents dSign str . equal Op
 
-    .               shift and go to state 50
-    (               shift and go to state 51
+    equal           shift and go to state 51
 
 
 state 38
 
-    (12) Command -> Indents str ( Atrib . fp
-    (13) Command -> Indents str ( Atrib . fp STR
+    (31) Command -> doctype str size . str language str
 
-    fp              shift and go to state 52
+    str             shift and go to state 52
 
 
 state 39
 
-    (37) STR -> STR str .
+    (5) Command -> Indents str . str . .
+    (14) Command -> Indents str . str . ( str equal str fp
 
-    str             reduce using rule 37 (STR -> STR str .)
-    doctype         reduce using rule 37 (STR -> STR str .)
-    $end            reduce using rule 37 (STR -> STR str .)
-    ppoint          reduce using rule 37 (STR -> STR str .)
-    }               reduce using rule 37 (STR -> STR str .)
-    .               reduce using rule 37 (STR -> STR str .)
-    hash            reduce using rule 37 (STR -> STR str .)
-    input           reduce using rule 37 (STR -> STR str .)
-    const           reduce using rule 37 (STR -> STR str .)
-    dSign           reduce using rule 37 (STR -> STR str .)
-    each            reduce using rule 37 (STR -> STR str .)
-    for             reduce using rule 37 (STR -> STR str .)
-    tab             reduce using rule 37 (STR -> STR str .)
-    fpR             reduce using rule 37 (STR -> STR str .)
+    .               shift and go to state 53
+    (               shift and go to state 54
 
 
 state 40
 
-    (28) Command -> Indents str hash str . STR
-    (37) STR -> . STR str
-    (38) STR -> . dSign str dSign
-    (39) STR -> . dSign str . str dSign
-    (40) STR -> . str
+    (12) Command -> Indents str ( Atrib . fp
+    (13) Command -> Indents str ( Atrib . fp STR
 
-    dSign           shift and go to state 26
-    str             shift and go to state 20
+    fp              shift and go to state 55
 
-    STR                            shift and go to state 53
 
 state 41
 
-    (38) STR -> dSign str . dSign
-    (39) STR -> dSign str . . str dSign
+    (38) STR -> STR str .
 
-    dSign           shift and go to state 54
-    .               shift and go to state 55
+    str             reduce using rule 38 (STR -> STR str .)
+    doctype         reduce using rule 38 (STR -> STR str .)
+    $end            reduce using rule 38 (STR -> STR str .)
+    ppoint          reduce using rule 38 (STR -> STR str .)
+    }               reduce using rule 38 (STR -> STR str .)
+    .               reduce using rule 38 (STR -> STR str .)
+    hash            reduce using rule 38 (STR -> STR str .)
+    input           reduce using rule 38 (STR -> STR str .)
+    const           reduce using rule 38 (STR -> STR str .)
+    href            reduce using rule 38 (STR -> STR str .)
+    dSign           reduce using rule 38 (STR -> STR str .)
+    each            reduce using rule 38 (STR -> STR str .)
+    for             reduce using rule 38 (STR -> STR str .)
+    tab             reduce using rule 38 (STR -> STR str .)
+    fpR             reduce using rule 38 (STR -> STR str .)
 
 
 state 42
+
+    (29) Command -> Indents str hash str . STR
+    (38) STR -> . STR str
+    (39) STR -> . dSign str dSign
+    (40) STR -> . dSign str . str dSign
+    (41) STR -> . str
+
+    dSign           shift and go to state 27
+    str             shift and go to state 21
+
+    STR                            shift and go to state 56
+
+state 43
+
+    (39) STR -> dSign str . dSign
+    (40) STR -> dSign str . . str dSign
+
+    dSign           shift and go to state 57
+    .               shift and go to state 58
+
+
+state 44
 
     (8) Command -> Indents ppoint str . .
 
@@ -735,13 +778,14 @@ state 42
     hash            reduce using rule 8 (Command -> Indents ppoint str . .)
     input           reduce using rule 8 (Command -> Indents ppoint str . .)
     const           reduce using rule 8 (Command -> Indents ppoint str . .)
+    href            reduce using rule 8 (Command -> Indents ppoint str . .)
     dSign           reduce using rule 8 (Command -> Indents ppoint str . .)
     each            reduce using rule 8 (Command -> Indents ppoint str . .)
     for             reduce using rule 8 (Command -> Indents ppoint str . .)
     tab             reduce using rule 8 (Command -> Indents ppoint str . .)
 
 
-state 43
+state 45
 
     (11) Command -> Indents input Atribs fp .
 
@@ -754,68 +798,93 @@ state 43
     hash            reduce using rule 11 (Command -> Indents input Atribs fp .)
     input           reduce using rule 11 (Command -> Indents input Atribs fp .)
     const           reduce using rule 11 (Command -> Indents input Atribs fp .)
+    href            reduce using rule 11 (Command -> Indents input Atribs fp .)
     dSign           reduce using rule 11 (Command -> Indents input Atribs fp .)
     each            reduce using rule 11 (Command -> Indents input Atribs fp .)
     for             reduce using rule 11 (Command -> Indents input Atribs fp .)
     tab             reduce using rule 11 (Command -> Indents input Atribs fp .)
 
 
-state 44
-
-    (33) Atribs -> Atribs Atrib .
-
-    fp              reduce using rule 33 (Atribs -> Atribs Atrib .)
-    str             reduce using rule 33 (Atribs -> Atribs Atrib .)
-
-
-state 45
-
-    (35) Atrib -> str equal . qStr
-    (36) Atrib -> str equal . str
-
-    qStr            shift and go to state 57
-    str             shift and go to state 56
-
-
 state 46
 
-    (15) Command -> Indents const str equal . apR LqStr fpR
+    (34) Atribs -> Atribs Atrib .
 
-    apR             shift and go to state 58
+    fp              reduce using rule 34 (Atribs -> Atribs Atrib .)
+    str             reduce using rule 34 (Atribs -> Atribs Atrib .)
 
 
 state 47
 
-    (17) Command -> Indents Cycle str in . Range
-    (26) Range -> . apR STR fpR
-    (27) Range -> . str
+    (36) Atrib -> str equal . qStr
+    (37) Atrib -> str equal . str
 
-    apR             shift and go to state 61
+    qStr            shift and go to state 60
     str             shift and go to state 59
 
-    Range                          shift and go to state 60
 
 state 48
 
-    (18) Command -> Indents dSign str equal . Op
-    (19) Op -> . Op + Op
-    (20) Op -> . Op - Op
-    (21) Op -> . Op * Op
-    (22) Op -> . Op / Op
-    (23) Op -> . str
+    (15) Command -> Indents const str equal . apR LqStr fpR
 
-    str             shift and go to state 62
+    apR             shift and go to state 61
 
-    Op                             shift and go to state 63
 
 state 49
 
-    (30) Command -> doctype str size str . language str
+    (16) Command -> Indents href link STR .
+    (38) STR -> STR . str
 
-    language        shift and go to state 64
+  ! shift/reduce conflict for str resolved as shift
+    doctype         reduce using rule 16 (Command -> Indents href link STR .)
+    $end            reduce using rule 16 (Command -> Indents href link STR .)
+    ppoint          reduce using rule 16 (Command -> Indents href link STR .)
+    }               reduce using rule 16 (Command -> Indents href link STR .)
+    .               reduce using rule 16 (Command -> Indents href link STR .)
+    hash            reduce using rule 16 (Command -> Indents href link STR .)
+    input           reduce using rule 16 (Command -> Indents href link STR .)
+    const           reduce using rule 16 (Command -> Indents href link STR .)
+    href            reduce using rule 16 (Command -> Indents href link STR .)
+    dSign           reduce using rule 16 (Command -> Indents href link STR .)
+    each            reduce using rule 16 (Command -> Indents href link STR .)
+    for             reduce using rule 16 (Command -> Indents href link STR .)
+    tab             reduce using rule 16 (Command -> Indents href link STR .)
+    str             shift and go to state 41
+
+  ! str             [ reduce using rule 16 (Command -> Indents href link STR .) ]
 
 
 state 50
+
+    (18) Command -> Indents Cycle str in . Range
+    (27) Range -> . apR STR fpR
+    (28) Range -> . str
+
+    apR             shift and go to state 64
+    str             shift and go to state 62
+
+    Range                          shift and go to state 63
+
+state 51
+
+    (19) Command -> Indents dSign str equal . Op
+    (20) Op -> . Op + Op
+    (21) Op -> . Op - Op
+    (22) Op -> . Op * Op
+    (23) Op -> . Op / Op
+    (24) Op -> . str
+
+    str             shift and go to state 65
+
+    Op                             shift and go to state 66
+
+state 52
+
+    (31) Command -> doctype str size str . language str
+
+    language        shift and go to state 67
+
+
+state 53
 
     (5) Command -> Indents str . str . .
 
@@ -828,27 +897,28 @@ state 50
     hash            reduce using rule 5 (Command -> Indents str . str . .)
     input           reduce using rule 5 (Command -> Indents str . str . .)
     const           reduce using rule 5 (Command -> Indents str . str . .)
+    href            reduce using rule 5 (Command -> Indents str . str . .)
     dSign           reduce using rule 5 (Command -> Indents str . str . .)
     each            reduce using rule 5 (Command -> Indents str . str . .)
     for             reduce using rule 5 (Command -> Indents str . str . .)
     tab             reduce using rule 5 (Command -> Indents str . str . .)
 
 
-state 51
+state 54
 
     (14) Command -> Indents str . str ( . str equal str fp
 
-    str             shift and go to state 65
+    str             shift and go to state 68
 
 
-state 52
+state 55
 
     (12) Command -> Indents str ( Atrib fp .
     (13) Command -> Indents str ( Atrib fp . STR
-    (37) STR -> . STR str
-    (38) STR -> . dSign str dSign
-    (39) STR -> . dSign str . str dSign
-    (40) STR -> . str
+    (38) STR -> . STR str
+    (39) STR -> . dSign str dSign
+    (40) STR -> . dSign str . str dSign
+    (41) STR -> . str
 
   ! shift/reduce conflict for dSign resolved as shift
   ! shift/reduce conflict for str resolved as shift
@@ -860,212 +930,219 @@ state 52
     hash            reduce using rule 12 (Command -> Indents str ( Atrib fp .)
     input           reduce using rule 12 (Command -> Indents str ( Atrib fp .)
     const           reduce using rule 12 (Command -> Indents str ( Atrib fp .)
+    href            reduce using rule 12 (Command -> Indents str ( Atrib fp .)
     each            reduce using rule 12 (Command -> Indents str ( Atrib fp .)
     for             reduce using rule 12 (Command -> Indents str ( Atrib fp .)
     tab             reduce using rule 12 (Command -> Indents str ( Atrib fp .)
-    dSign           shift and go to state 26
-    str             shift and go to state 20
+    dSign           shift and go to state 27
+    str             shift and go to state 21
 
   ! str             [ reduce using rule 12 (Command -> Indents str ( Atrib fp .) ]
   ! dSign           [ reduce using rule 12 (Command -> Indents str ( Atrib fp .) ]
 
-    STR                            shift and go to state 66
-
-state 53
-
-    (28) Command -> Indents str hash str STR .
-    (37) STR -> STR . str
-
-  ! shift/reduce conflict for str resolved as shift
-    doctype         reduce using rule 28 (Command -> Indents str hash str STR .)
-    $end            reduce using rule 28 (Command -> Indents str hash str STR .)
-    ppoint          reduce using rule 28 (Command -> Indents str hash str STR .)
-    }               reduce using rule 28 (Command -> Indents str hash str STR .)
-    .               reduce using rule 28 (Command -> Indents str hash str STR .)
-    hash            reduce using rule 28 (Command -> Indents str hash str STR .)
-    input           reduce using rule 28 (Command -> Indents str hash str STR .)
-    const           reduce using rule 28 (Command -> Indents str hash str STR .)
-    dSign           reduce using rule 28 (Command -> Indents str hash str STR .)
-    each            reduce using rule 28 (Command -> Indents str hash str STR .)
-    for             reduce using rule 28 (Command -> Indents str hash str STR .)
-    tab             reduce using rule 28 (Command -> Indents str hash str STR .)
-    str             shift and go to state 39
-
-  ! str             [ reduce using rule 28 (Command -> Indents str hash str STR .) ]
-
-
-state 54
-
-    (38) STR -> dSign str dSign .
-
-    str             reduce using rule 38 (STR -> dSign str dSign .)
-    doctype         reduce using rule 38 (STR -> dSign str dSign .)
-    $end            reduce using rule 38 (STR -> dSign str dSign .)
-    ppoint          reduce using rule 38 (STR -> dSign str dSign .)
-    }               reduce using rule 38 (STR -> dSign str dSign .)
-    .               reduce using rule 38 (STR -> dSign str dSign .)
-    hash            reduce using rule 38 (STR -> dSign str dSign .)
-    input           reduce using rule 38 (STR -> dSign str dSign .)
-    const           reduce using rule 38 (STR -> dSign str dSign .)
-    dSign           reduce using rule 38 (STR -> dSign str dSign .)
-    each            reduce using rule 38 (STR -> dSign str dSign .)
-    for             reduce using rule 38 (STR -> dSign str dSign .)
-    tab             reduce using rule 38 (STR -> dSign str dSign .)
-    fpR             reduce using rule 38 (STR -> dSign str dSign .)
-
-
-state 55
-
-    (39) STR -> dSign str . . str dSign
-
-    str             shift and go to state 67
-
+    STR                            shift and go to state 69
 
 state 56
 
-    (36) Atrib -> str equal str .
+    (29) Command -> Indents str hash str STR .
+    (38) STR -> STR . str
 
-    fp              reduce using rule 36 (Atrib -> str equal str .)
-    str             reduce using rule 36 (Atrib -> str equal str .)
+  ! shift/reduce conflict for str resolved as shift
+    doctype         reduce using rule 29 (Command -> Indents str hash str STR .)
+    $end            reduce using rule 29 (Command -> Indents str hash str STR .)
+    ppoint          reduce using rule 29 (Command -> Indents str hash str STR .)
+    }               reduce using rule 29 (Command -> Indents str hash str STR .)
+    .               reduce using rule 29 (Command -> Indents str hash str STR .)
+    hash            reduce using rule 29 (Command -> Indents str hash str STR .)
+    input           reduce using rule 29 (Command -> Indents str hash str STR .)
+    const           reduce using rule 29 (Command -> Indents str hash str STR .)
+    href            reduce using rule 29 (Command -> Indents str hash str STR .)
+    dSign           reduce using rule 29 (Command -> Indents str hash str STR .)
+    each            reduce using rule 29 (Command -> Indents str hash str STR .)
+    for             reduce using rule 29 (Command -> Indents str hash str STR .)
+    tab             reduce using rule 29 (Command -> Indents str hash str STR .)
+    str             shift and go to state 41
+
+  ! str             [ reduce using rule 29 (Command -> Indents str hash str STR .) ]
 
 
 state 57
 
-    (35) Atrib -> str equal qStr .
+    (39) STR -> dSign str dSign .
 
-    fp              reduce using rule 35 (Atrib -> str equal qStr .)
-    str             reduce using rule 35 (Atrib -> str equal qStr .)
+    str             reduce using rule 39 (STR -> dSign str dSign .)
+    doctype         reduce using rule 39 (STR -> dSign str dSign .)
+    $end            reduce using rule 39 (STR -> dSign str dSign .)
+    ppoint          reduce using rule 39 (STR -> dSign str dSign .)
+    }               reduce using rule 39 (STR -> dSign str dSign .)
+    .               reduce using rule 39 (STR -> dSign str dSign .)
+    hash            reduce using rule 39 (STR -> dSign str dSign .)
+    input           reduce using rule 39 (STR -> dSign str dSign .)
+    const           reduce using rule 39 (STR -> dSign str dSign .)
+    href            reduce using rule 39 (STR -> dSign str dSign .)
+    dSign           reduce using rule 39 (STR -> dSign str dSign .)
+    each            reduce using rule 39 (STR -> dSign str dSign .)
+    for             reduce using rule 39 (STR -> dSign str dSign .)
+    tab             reduce using rule 39 (STR -> dSign str dSign .)
+    fpR             reduce using rule 39 (STR -> dSign str dSign .)
 
 
 state 58
 
-    (15) Command -> Indents const str equal apR . LqStr fpR
-    (31) LqStr -> . LqStr comma qStr
-    (32) LqStr -> . qStr
+    (40) STR -> dSign str . . str dSign
 
-    qStr            shift and go to state 69
+    str             shift and go to state 70
 
-    LqStr                          shift and go to state 68
 
 state 59
 
-    (27) Range -> str .
+    (37) Atrib -> str equal str .
 
-    doctype         reduce using rule 27 (Range -> str .)
-    $end            reduce using rule 27 (Range -> str .)
-    str             reduce using rule 27 (Range -> str .)
-    ppoint          reduce using rule 27 (Range -> str .)
-    }               reduce using rule 27 (Range -> str .)
-    .               reduce using rule 27 (Range -> str .)
-    hash            reduce using rule 27 (Range -> str .)
-    input           reduce using rule 27 (Range -> str .)
-    const           reduce using rule 27 (Range -> str .)
-    dSign           reduce using rule 27 (Range -> str .)
-    each            reduce using rule 27 (Range -> str .)
-    for             reduce using rule 27 (Range -> str .)
-    tab             reduce using rule 27 (Range -> str .)
+    fp              reduce using rule 37 (Atrib -> str equal str .)
+    str             reduce using rule 37 (Atrib -> str equal str .)
 
 
 state 60
 
-    (17) Command -> Indents Cycle str in Range .
+    (36) Atrib -> str equal qStr .
 
-    doctype         reduce using rule 17 (Command -> Indents Cycle str in Range .)
-    $end            reduce using rule 17 (Command -> Indents Cycle str in Range .)
-    str             reduce using rule 17 (Command -> Indents Cycle str in Range .)
-    ppoint          reduce using rule 17 (Command -> Indents Cycle str in Range .)
-    }               reduce using rule 17 (Command -> Indents Cycle str in Range .)
-    .               reduce using rule 17 (Command -> Indents Cycle str in Range .)
-    hash            reduce using rule 17 (Command -> Indents Cycle str in Range .)
-    input           reduce using rule 17 (Command -> Indents Cycle str in Range .)
-    const           reduce using rule 17 (Command -> Indents Cycle str in Range .)
-    dSign           reduce using rule 17 (Command -> Indents Cycle str in Range .)
-    each            reduce using rule 17 (Command -> Indents Cycle str in Range .)
-    for             reduce using rule 17 (Command -> Indents Cycle str in Range .)
-    tab             reduce using rule 17 (Command -> Indents Cycle str in Range .)
+    fp              reduce using rule 36 (Atrib -> str equal qStr .)
+    str             reduce using rule 36 (Atrib -> str equal qStr .)
 
 
 state 61
 
-    (26) Range -> apR . STR fpR
-    (37) STR -> . STR str
-    (38) STR -> . dSign str dSign
-    (39) STR -> . dSign str . str dSign
-    (40) STR -> . str
+    (15) Command -> Indents const str equal apR . LqStr fpR
+    (32) LqStr -> . LqStr comma qStr
+    (33) LqStr -> . qStr
 
-    dSign           shift and go to state 26
-    str             shift and go to state 20
+    qStr            shift and go to state 72
 
-    STR                            shift and go to state 70
+    LqStr                          shift and go to state 71
 
 state 62
 
-    (23) Op -> str .
+    (28) Range -> str .
 
-    +               reduce using rule 23 (Op -> str .)
-    -               reduce using rule 23 (Op -> str .)
-    *               reduce using rule 23 (Op -> str .)
-    /               reduce using rule 23 (Op -> str .)
-    doctype         reduce using rule 23 (Op -> str .)
-    $end            reduce using rule 23 (Op -> str .)
-    str             reduce using rule 23 (Op -> str .)
-    ppoint          reduce using rule 23 (Op -> str .)
-    }               reduce using rule 23 (Op -> str .)
-    .               reduce using rule 23 (Op -> str .)
-    hash            reduce using rule 23 (Op -> str .)
-    input           reduce using rule 23 (Op -> str .)
-    const           reduce using rule 23 (Op -> str .)
-    dSign           reduce using rule 23 (Op -> str .)
-    each            reduce using rule 23 (Op -> str .)
-    for             reduce using rule 23 (Op -> str .)
-    tab             reduce using rule 23 (Op -> str .)
+    doctype         reduce using rule 28 (Range -> str .)
+    $end            reduce using rule 28 (Range -> str .)
+    str             reduce using rule 28 (Range -> str .)
+    ppoint          reduce using rule 28 (Range -> str .)
+    }               reduce using rule 28 (Range -> str .)
+    .               reduce using rule 28 (Range -> str .)
+    hash            reduce using rule 28 (Range -> str .)
+    input           reduce using rule 28 (Range -> str .)
+    const           reduce using rule 28 (Range -> str .)
+    href            reduce using rule 28 (Range -> str .)
+    dSign           reduce using rule 28 (Range -> str .)
+    each            reduce using rule 28 (Range -> str .)
+    for             reduce using rule 28 (Range -> str .)
+    tab             reduce using rule 28 (Range -> str .)
 
 
 state 63
 
-    (18) Command -> Indents dSign str equal Op .
-    (19) Op -> Op . + Op
-    (20) Op -> Op . - Op
-    (21) Op -> Op . * Op
-    (22) Op -> Op . / Op
+    (18) Command -> Indents Cycle str in Range .
 
-    doctype         reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    $end            reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    str             reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    ppoint          reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    }               reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    .               reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    hash            reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    input           reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    const           reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    dSign           reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    each            reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    for             reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    tab             reduce using rule 18 (Command -> Indents dSign str equal Op .)
-    +               shift and go to state 71
-    -               shift and go to state 72
-    *               shift and go to state 73
-    /               shift and go to state 74
+    doctype         reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    $end            reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    str             reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    ppoint          reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    }               reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    .               reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    hash            reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    input           reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    const           reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    href            reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    dSign           reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    each            reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    for             reduce using rule 18 (Command -> Indents Cycle str in Range .)
+    tab             reduce using rule 18 (Command -> Indents Cycle str in Range .)
 
 
 state 64
 
-    (30) Command -> doctype str size str language . str
+    (27) Range -> apR . STR fpR
+    (38) STR -> . STR str
+    (39) STR -> . dSign str dSign
+    (40) STR -> . dSign str . str dSign
+    (41) STR -> . str
 
-    str             shift and go to state 75
+    dSign           shift and go to state 27
+    str             shift and go to state 21
 
+    STR                            shift and go to state 73
 
 state 65
 
-    (14) Command -> Indents str . str ( str . equal str fp
+    (24) Op -> str .
 
-    equal           shift and go to state 76
+    +               reduce using rule 24 (Op -> str .)
+    -               reduce using rule 24 (Op -> str .)
+    *               reduce using rule 24 (Op -> str .)
+    /               reduce using rule 24 (Op -> str .)
+    doctype         reduce using rule 24 (Op -> str .)
+    $end            reduce using rule 24 (Op -> str .)
+    str             reduce using rule 24 (Op -> str .)
+    ppoint          reduce using rule 24 (Op -> str .)
+    }               reduce using rule 24 (Op -> str .)
+    .               reduce using rule 24 (Op -> str .)
+    hash            reduce using rule 24 (Op -> str .)
+    input           reduce using rule 24 (Op -> str .)
+    const           reduce using rule 24 (Op -> str .)
+    href            reduce using rule 24 (Op -> str .)
+    dSign           reduce using rule 24 (Op -> str .)
+    each            reduce using rule 24 (Op -> str .)
+    for             reduce using rule 24 (Op -> str .)
+    tab             reduce using rule 24 (Op -> str .)
 
 
 state 66
 
+    (19) Command -> Indents dSign str equal Op .
+    (20) Op -> Op . + Op
+    (21) Op -> Op . - Op
+    (22) Op -> Op . * Op
+    (23) Op -> Op . / Op
+
+    doctype         reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    $end            reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    str             reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    ppoint          reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    }               reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    .               reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    hash            reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    input           reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    const           reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    href            reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    dSign           reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    each            reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    for             reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    tab             reduce using rule 19 (Command -> Indents dSign str equal Op .)
+    +               shift and go to state 74
+    -               shift and go to state 75
+    *               shift and go to state 76
+    /               shift and go to state 77
+
+
+state 67
+
+    (31) Command -> doctype str size str language . str
+
+    str             shift and go to state 78
+
+
+state 68
+
+    (14) Command -> Indents str . str ( str . equal str fp
+
+    equal           shift and go to state 79
+
+
+state 69
+
     (13) Command -> Indents str ( Atrib fp STR .
-    (37) STR -> STR . str
+    (38) STR -> STR . str
 
   ! shift/reduce conflict for str resolved as shift
     doctype         reduce using rule 13 (Command -> Indents str ( Atrib fp STR .)
@@ -1076,147 +1153,150 @@ state 66
     hash            reduce using rule 13 (Command -> Indents str ( Atrib fp STR .)
     input           reduce using rule 13 (Command -> Indents str ( Atrib fp STR .)
     const           reduce using rule 13 (Command -> Indents str ( Atrib fp STR .)
+    href            reduce using rule 13 (Command -> Indents str ( Atrib fp STR .)
     dSign           reduce using rule 13 (Command -> Indents str ( Atrib fp STR .)
     each            reduce using rule 13 (Command -> Indents str ( Atrib fp STR .)
     for             reduce using rule 13 (Command -> Indents str ( Atrib fp STR .)
     tab             reduce using rule 13 (Command -> Indents str ( Atrib fp STR .)
-    str             shift and go to state 39
+    str             shift and go to state 41
 
   ! str             [ reduce using rule 13 (Command -> Indents str ( Atrib fp STR .) ]
 
 
-state 67
-
-    (39) STR -> dSign str . str . dSign
-
-    dSign           shift and go to state 77
-
-
-state 68
-
-    (15) Command -> Indents const str equal apR LqStr . fpR
-    (31) LqStr -> LqStr . comma qStr
-
-    fpR             shift and go to state 78
-    comma           shift and go to state 79
-
-
-state 69
-
-    (32) LqStr -> qStr .
-
-    fpR             reduce using rule 32 (LqStr -> qStr .)
-    comma           reduce using rule 32 (LqStr -> qStr .)
-
-
 state 70
 
-    (26) Range -> apR STR . fpR
-    (37) STR -> STR . str
+    (40) STR -> dSign str . str . dSign
 
-    fpR             shift and go to state 80
-    str             shift and go to state 39
+    dSign           shift and go to state 80
 
 
 state 71
 
-    (19) Op -> Op + . Op
-    (19) Op -> . Op + Op
-    (20) Op -> . Op - Op
-    (21) Op -> . Op * Op
-    (22) Op -> . Op / Op
-    (23) Op -> . str
+    (15) Command -> Indents const str equal apR LqStr . fpR
+    (32) LqStr -> LqStr . comma qStr
 
-    str             shift and go to state 62
+    fpR             shift and go to state 81
+    comma           shift and go to state 82
 
-    Op                             shift and go to state 81
 
 state 72
 
-    (20) Op -> Op - . Op
-    (19) Op -> . Op + Op
-    (20) Op -> . Op - Op
-    (21) Op -> . Op * Op
-    (22) Op -> . Op / Op
-    (23) Op -> . str
+    (33) LqStr -> qStr .
 
-    str             shift and go to state 62
+    fpR             reduce using rule 33 (LqStr -> qStr .)
+    comma           reduce using rule 33 (LqStr -> qStr .)
 
-    Op                             shift and go to state 82
 
 state 73
 
-    (21) Op -> Op * . Op
-    (19) Op -> . Op + Op
-    (20) Op -> . Op - Op
-    (21) Op -> . Op * Op
-    (22) Op -> . Op / Op
-    (23) Op -> . str
+    (27) Range -> apR STR . fpR
+    (38) STR -> STR . str
 
-    str             shift and go to state 62
+    fpR             shift and go to state 83
+    str             shift and go to state 41
 
-    Op                             shift and go to state 83
 
 state 74
 
-    (22) Op -> Op / . Op
-    (19) Op -> . Op + Op
-    (20) Op -> . Op - Op
-    (21) Op -> . Op * Op
-    (22) Op -> . Op / Op
-    (23) Op -> . str
+    (20) Op -> Op + . Op
+    (20) Op -> . Op + Op
+    (21) Op -> . Op - Op
+    (22) Op -> . Op * Op
+    (23) Op -> . Op / Op
+    (24) Op -> . str
 
-    str             shift and go to state 62
+    str             shift and go to state 65
 
     Op                             shift and go to state 84
 
 state 75
 
-    (30) Command -> doctype str size str language str .
+    (21) Op -> Op - . Op
+    (20) Op -> . Op + Op
+    (21) Op -> . Op - Op
+    (22) Op -> . Op * Op
+    (23) Op -> . Op / Op
+    (24) Op -> . str
 
-    doctype         reduce using rule 30 (Command -> doctype str size str language str .)
-    $end            reduce using rule 30 (Command -> doctype str size str language str .)
-    str             reduce using rule 30 (Command -> doctype str size str language str .)
-    ppoint          reduce using rule 30 (Command -> doctype str size str language str .)
-    }               reduce using rule 30 (Command -> doctype str size str language str .)
-    .               reduce using rule 30 (Command -> doctype str size str language str .)
-    hash            reduce using rule 30 (Command -> doctype str size str language str .)
-    input           reduce using rule 30 (Command -> doctype str size str language str .)
-    const           reduce using rule 30 (Command -> doctype str size str language str .)
-    dSign           reduce using rule 30 (Command -> doctype str size str language str .)
-    each            reduce using rule 30 (Command -> doctype str size str language str .)
-    for             reduce using rule 30 (Command -> doctype str size str language str .)
-    tab             reduce using rule 30 (Command -> doctype str size str language str .)
+    str             shift and go to state 65
 
+    Op                             shift and go to state 85
 
 state 76
 
-    (14) Command -> Indents str . str ( str equal . str fp
+    (22) Op -> Op * . Op
+    (20) Op -> . Op + Op
+    (21) Op -> . Op - Op
+    (22) Op -> . Op * Op
+    (23) Op -> . Op / Op
+    (24) Op -> . str
 
-    str             shift and go to state 85
+    str             shift and go to state 65
 
+    Op                             shift and go to state 86
 
 state 77
 
-    (39) STR -> dSign str . str dSign .
+    (23) Op -> Op / . Op
+    (20) Op -> . Op + Op
+    (21) Op -> . Op - Op
+    (22) Op -> . Op * Op
+    (23) Op -> . Op / Op
+    (24) Op -> . str
 
-    str             reduce using rule 39 (STR -> dSign str . str dSign .)
-    doctype         reduce using rule 39 (STR -> dSign str . str dSign .)
-    $end            reduce using rule 39 (STR -> dSign str . str dSign .)
-    ppoint          reduce using rule 39 (STR -> dSign str . str dSign .)
-    }               reduce using rule 39 (STR -> dSign str . str dSign .)
-    .               reduce using rule 39 (STR -> dSign str . str dSign .)
-    hash            reduce using rule 39 (STR -> dSign str . str dSign .)
-    input           reduce using rule 39 (STR -> dSign str . str dSign .)
-    const           reduce using rule 39 (STR -> dSign str . str dSign .)
-    dSign           reduce using rule 39 (STR -> dSign str . str dSign .)
-    each            reduce using rule 39 (STR -> dSign str . str dSign .)
-    for             reduce using rule 39 (STR -> dSign str . str dSign .)
-    tab             reduce using rule 39 (STR -> dSign str . str dSign .)
-    fpR             reduce using rule 39 (STR -> dSign str . str dSign .)
+    str             shift and go to state 65
 
+    Op                             shift and go to state 87
 
 state 78
+
+    (31) Command -> doctype str size str language str .
+
+    doctype         reduce using rule 31 (Command -> doctype str size str language str .)
+    $end            reduce using rule 31 (Command -> doctype str size str language str .)
+    str             reduce using rule 31 (Command -> doctype str size str language str .)
+    ppoint          reduce using rule 31 (Command -> doctype str size str language str .)
+    }               reduce using rule 31 (Command -> doctype str size str language str .)
+    .               reduce using rule 31 (Command -> doctype str size str language str .)
+    hash            reduce using rule 31 (Command -> doctype str size str language str .)
+    input           reduce using rule 31 (Command -> doctype str size str language str .)
+    const           reduce using rule 31 (Command -> doctype str size str language str .)
+    href            reduce using rule 31 (Command -> doctype str size str language str .)
+    dSign           reduce using rule 31 (Command -> doctype str size str language str .)
+    each            reduce using rule 31 (Command -> doctype str size str language str .)
+    for             reduce using rule 31 (Command -> doctype str size str language str .)
+    tab             reduce using rule 31 (Command -> doctype str size str language str .)
+
+
+state 79
+
+    (14) Command -> Indents str . str ( str equal . str fp
+
+    str             shift and go to state 88
+
+
+state 80
+
+    (40) STR -> dSign str . str dSign .
+
+    str             reduce using rule 40 (STR -> dSign str . str dSign .)
+    doctype         reduce using rule 40 (STR -> dSign str . str dSign .)
+    $end            reduce using rule 40 (STR -> dSign str . str dSign .)
+    ppoint          reduce using rule 40 (STR -> dSign str . str dSign .)
+    }               reduce using rule 40 (STR -> dSign str . str dSign .)
+    .               reduce using rule 40 (STR -> dSign str . str dSign .)
+    hash            reduce using rule 40 (STR -> dSign str . str dSign .)
+    input           reduce using rule 40 (STR -> dSign str . str dSign .)
+    const           reduce using rule 40 (STR -> dSign str . str dSign .)
+    href            reduce using rule 40 (STR -> dSign str . str dSign .)
+    dSign           reduce using rule 40 (STR -> dSign str . str dSign .)
+    each            reduce using rule 40 (STR -> dSign str . str dSign .)
+    for             reduce using rule 40 (STR -> dSign str . str dSign .)
+    tab             reduce using rule 40 (STR -> dSign str . str dSign .)
+    fpR             reduce using rule 40 (STR -> dSign str . str dSign .)
+
+
+state 81
 
     (15) Command -> Indents const str equal apR LqStr fpR .
 
@@ -1229,198 +1309,204 @@ state 78
     hash            reduce using rule 15 (Command -> Indents const str equal apR LqStr fpR .)
     input           reduce using rule 15 (Command -> Indents const str equal apR LqStr fpR .)
     const           reduce using rule 15 (Command -> Indents const str equal apR LqStr fpR .)
+    href            reduce using rule 15 (Command -> Indents const str equal apR LqStr fpR .)
     dSign           reduce using rule 15 (Command -> Indents const str equal apR LqStr fpR .)
     each            reduce using rule 15 (Command -> Indents const str equal apR LqStr fpR .)
     for             reduce using rule 15 (Command -> Indents const str equal apR LqStr fpR .)
     tab             reduce using rule 15 (Command -> Indents const str equal apR LqStr fpR .)
 
 
-state 79
-
-    (31) LqStr -> LqStr comma . qStr
-
-    qStr            shift and go to state 86
-
-
-state 80
-
-    (26) Range -> apR STR fpR .
-
-    doctype         reduce using rule 26 (Range -> apR STR fpR .)
-    $end            reduce using rule 26 (Range -> apR STR fpR .)
-    str             reduce using rule 26 (Range -> apR STR fpR .)
-    ppoint          reduce using rule 26 (Range -> apR STR fpR .)
-    }               reduce using rule 26 (Range -> apR STR fpR .)
-    .               reduce using rule 26 (Range -> apR STR fpR .)
-    hash            reduce using rule 26 (Range -> apR STR fpR .)
-    input           reduce using rule 26 (Range -> apR STR fpR .)
-    const           reduce using rule 26 (Range -> apR STR fpR .)
-    dSign           reduce using rule 26 (Range -> apR STR fpR .)
-    each            reduce using rule 26 (Range -> apR STR fpR .)
-    for             reduce using rule 26 (Range -> apR STR fpR .)
-    tab             reduce using rule 26 (Range -> apR STR fpR .)
-
-
-state 81
-
-    (19) Op -> Op + Op .
-    (19) Op -> Op . + Op
-    (20) Op -> Op . - Op
-    (21) Op -> Op . * Op
-    (22) Op -> Op . / Op
-
-  ! shift/reduce conflict for + resolved as shift
-  ! shift/reduce conflict for - resolved as shift
-  ! shift/reduce conflict for * resolved as shift
-  ! shift/reduce conflict for / resolved as shift
-    doctype         reduce using rule 19 (Op -> Op + Op .)
-    $end            reduce using rule 19 (Op -> Op + Op .)
-    str             reduce using rule 19 (Op -> Op + Op .)
-    ppoint          reduce using rule 19 (Op -> Op + Op .)
-    }               reduce using rule 19 (Op -> Op + Op .)
-    .               reduce using rule 19 (Op -> Op + Op .)
-    hash            reduce using rule 19 (Op -> Op + Op .)
-    input           reduce using rule 19 (Op -> Op + Op .)
-    const           reduce using rule 19 (Op -> Op + Op .)
-    dSign           reduce using rule 19 (Op -> Op + Op .)
-    each            reduce using rule 19 (Op -> Op + Op .)
-    for             reduce using rule 19 (Op -> Op + Op .)
-    tab             reduce using rule 19 (Op -> Op + Op .)
-    +               shift and go to state 71
-    -               shift and go to state 72
-    *               shift and go to state 73
-    /               shift and go to state 74
-
-  ! +               [ reduce using rule 19 (Op -> Op + Op .) ]
-  ! -               [ reduce using rule 19 (Op -> Op + Op .) ]
-  ! *               [ reduce using rule 19 (Op -> Op + Op .) ]
-  ! /               [ reduce using rule 19 (Op -> Op + Op .) ]
-
-
 state 82
 
-    (20) Op -> Op - Op .
-    (19) Op -> Op . + Op
-    (20) Op -> Op . - Op
-    (21) Op -> Op . * Op
-    (22) Op -> Op . / Op
+    (32) LqStr -> LqStr comma . qStr
 
-  ! shift/reduce conflict for + resolved as shift
-  ! shift/reduce conflict for - resolved as shift
-  ! shift/reduce conflict for * resolved as shift
-  ! shift/reduce conflict for / resolved as shift
-    doctype         reduce using rule 20 (Op -> Op - Op .)
-    $end            reduce using rule 20 (Op -> Op - Op .)
-    str             reduce using rule 20 (Op -> Op - Op .)
-    ppoint          reduce using rule 20 (Op -> Op - Op .)
-    }               reduce using rule 20 (Op -> Op - Op .)
-    .               reduce using rule 20 (Op -> Op - Op .)
-    hash            reduce using rule 20 (Op -> Op - Op .)
-    input           reduce using rule 20 (Op -> Op - Op .)
-    const           reduce using rule 20 (Op -> Op - Op .)
-    dSign           reduce using rule 20 (Op -> Op - Op .)
-    each            reduce using rule 20 (Op -> Op - Op .)
-    for             reduce using rule 20 (Op -> Op - Op .)
-    tab             reduce using rule 20 (Op -> Op - Op .)
-    +               shift and go to state 71
-    -               shift and go to state 72
-    *               shift and go to state 73
-    /               shift and go to state 74
-
-  ! +               [ reduce using rule 20 (Op -> Op - Op .) ]
-  ! -               [ reduce using rule 20 (Op -> Op - Op .) ]
-  ! *               [ reduce using rule 20 (Op -> Op - Op .) ]
-  ! /               [ reduce using rule 20 (Op -> Op - Op .) ]
+    qStr            shift and go to state 89
 
 
 state 83
 
-    (21) Op -> Op * Op .
-    (19) Op -> Op . + Op
-    (20) Op -> Op . - Op
-    (21) Op -> Op . * Op
-    (22) Op -> Op . / Op
+    (27) Range -> apR STR fpR .
 
-  ! shift/reduce conflict for + resolved as shift
-  ! shift/reduce conflict for - resolved as shift
-  ! shift/reduce conflict for * resolved as shift
-  ! shift/reduce conflict for / resolved as shift
-    doctype         reduce using rule 21 (Op -> Op * Op .)
-    $end            reduce using rule 21 (Op -> Op * Op .)
-    str             reduce using rule 21 (Op -> Op * Op .)
-    ppoint          reduce using rule 21 (Op -> Op * Op .)
-    }               reduce using rule 21 (Op -> Op * Op .)
-    .               reduce using rule 21 (Op -> Op * Op .)
-    hash            reduce using rule 21 (Op -> Op * Op .)
-    input           reduce using rule 21 (Op -> Op * Op .)
-    const           reduce using rule 21 (Op -> Op * Op .)
-    dSign           reduce using rule 21 (Op -> Op * Op .)
-    each            reduce using rule 21 (Op -> Op * Op .)
-    for             reduce using rule 21 (Op -> Op * Op .)
-    tab             reduce using rule 21 (Op -> Op * Op .)
-    +               shift and go to state 71
-    -               shift and go to state 72
-    *               shift and go to state 73
-    /               shift and go to state 74
-
-  ! +               [ reduce using rule 21 (Op -> Op * Op .) ]
-  ! -               [ reduce using rule 21 (Op -> Op * Op .) ]
-  ! *               [ reduce using rule 21 (Op -> Op * Op .) ]
-  ! /               [ reduce using rule 21 (Op -> Op * Op .) ]
+    doctype         reduce using rule 27 (Range -> apR STR fpR .)
+    $end            reduce using rule 27 (Range -> apR STR fpR .)
+    str             reduce using rule 27 (Range -> apR STR fpR .)
+    ppoint          reduce using rule 27 (Range -> apR STR fpR .)
+    }               reduce using rule 27 (Range -> apR STR fpR .)
+    .               reduce using rule 27 (Range -> apR STR fpR .)
+    hash            reduce using rule 27 (Range -> apR STR fpR .)
+    input           reduce using rule 27 (Range -> apR STR fpR .)
+    const           reduce using rule 27 (Range -> apR STR fpR .)
+    href            reduce using rule 27 (Range -> apR STR fpR .)
+    dSign           reduce using rule 27 (Range -> apR STR fpR .)
+    each            reduce using rule 27 (Range -> apR STR fpR .)
+    for             reduce using rule 27 (Range -> apR STR fpR .)
+    tab             reduce using rule 27 (Range -> apR STR fpR .)
 
 
 state 84
 
-    (22) Op -> Op / Op .
-    (19) Op -> Op . + Op
-    (20) Op -> Op . - Op
-    (21) Op -> Op . * Op
-    (22) Op -> Op . / Op
+    (20) Op -> Op + Op .
+    (20) Op -> Op . + Op
+    (21) Op -> Op . - Op
+    (22) Op -> Op . * Op
+    (23) Op -> Op . / Op
 
   ! shift/reduce conflict for + resolved as shift
   ! shift/reduce conflict for - resolved as shift
   ! shift/reduce conflict for * resolved as shift
   ! shift/reduce conflict for / resolved as shift
-    doctype         reduce using rule 22 (Op -> Op / Op .)
-    $end            reduce using rule 22 (Op -> Op / Op .)
-    str             reduce using rule 22 (Op -> Op / Op .)
-    ppoint          reduce using rule 22 (Op -> Op / Op .)
-    }               reduce using rule 22 (Op -> Op / Op .)
-    .               reduce using rule 22 (Op -> Op / Op .)
-    hash            reduce using rule 22 (Op -> Op / Op .)
-    input           reduce using rule 22 (Op -> Op / Op .)
-    const           reduce using rule 22 (Op -> Op / Op .)
-    dSign           reduce using rule 22 (Op -> Op / Op .)
-    each            reduce using rule 22 (Op -> Op / Op .)
-    for             reduce using rule 22 (Op -> Op / Op .)
-    tab             reduce using rule 22 (Op -> Op / Op .)
-    +               shift and go to state 71
-    -               shift and go to state 72
-    *               shift and go to state 73
-    /               shift and go to state 74
+    doctype         reduce using rule 20 (Op -> Op + Op .)
+    $end            reduce using rule 20 (Op -> Op + Op .)
+    str             reduce using rule 20 (Op -> Op + Op .)
+    ppoint          reduce using rule 20 (Op -> Op + Op .)
+    }               reduce using rule 20 (Op -> Op + Op .)
+    .               reduce using rule 20 (Op -> Op + Op .)
+    hash            reduce using rule 20 (Op -> Op + Op .)
+    input           reduce using rule 20 (Op -> Op + Op .)
+    const           reduce using rule 20 (Op -> Op + Op .)
+    href            reduce using rule 20 (Op -> Op + Op .)
+    dSign           reduce using rule 20 (Op -> Op + Op .)
+    each            reduce using rule 20 (Op -> Op + Op .)
+    for             reduce using rule 20 (Op -> Op + Op .)
+    tab             reduce using rule 20 (Op -> Op + Op .)
+    +               shift and go to state 74
+    -               shift and go to state 75
+    *               shift and go to state 76
+    /               shift and go to state 77
 
-  ! +               [ reduce using rule 22 (Op -> Op / Op .) ]
-  ! -               [ reduce using rule 22 (Op -> Op / Op .) ]
-  ! *               [ reduce using rule 22 (Op -> Op / Op .) ]
-  ! /               [ reduce using rule 22 (Op -> Op / Op .) ]
+  ! +               [ reduce using rule 20 (Op -> Op + Op .) ]
+  ! -               [ reduce using rule 20 (Op -> Op + Op .) ]
+  ! *               [ reduce using rule 20 (Op -> Op + Op .) ]
+  ! /               [ reduce using rule 20 (Op -> Op + Op .) ]
 
 
 state 85
 
-    (14) Command -> Indents str . str ( str equal str . fp
+    (21) Op -> Op - Op .
+    (20) Op -> Op . + Op
+    (21) Op -> Op . - Op
+    (22) Op -> Op . * Op
+    (23) Op -> Op . / Op
 
-    fp              shift and go to state 87
+  ! shift/reduce conflict for + resolved as shift
+  ! shift/reduce conflict for - resolved as shift
+  ! shift/reduce conflict for * resolved as shift
+  ! shift/reduce conflict for / resolved as shift
+    doctype         reduce using rule 21 (Op -> Op - Op .)
+    $end            reduce using rule 21 (Op -> Op - Op .)
+    str             reduce using rule 21 (Op -> Op - Op .)
+    ppoint          reduce using rule 21 (Op -> Op - Op .)
+    }               reduce using rule 21 (Op -> Op - Op .)
+    .               reduce using rule 21 (Op -> Op - Op .)
+    hash            reduce using rule 21 (Op -> Op - Op .)
+    input           reduce using rule 21 (Op -> Op - Op .)
+    const           reduce using rule 21 (Op -> Op - Op .)
+    href            reduce using rule 21 (Op -> Op - Op .)
+    dSign           reduce using rule 21 (Op -> Op - Op .)
+    each            reduce using rule 21 (Op -> Op - Op .)
+    for             reduce using rule 21 (Op -> Op - Op .)
+    tab             reduce using rule 21 (Op -> Op - Op .)
+    +               shift and go to state 74
+    -               shift and go to state 75
+    *               shift and go to state 76
+    /               shift and go to state 77
+
+  ! +               [ reduce using rule 21 (Op -> Op - Op .) ]
+  ! -               [ reduce using rule 21 (Op -> Op - Op .) ]
+  ! *               [ reduce using rule 21 (Op -> Op - Op .) ]
+  ! /               [ reduce using rule 21 (Op -> Op - Op .) ]
 
 
 state 86
 
-    (31) LqStr -> LqStr comma qStr .
+    (22) Op -> Op * Op .
+    (20) Op -> Op . + Op
+    (21) Op -> Op . - Op
+    (22) Op -> Op . * Op
+    (23) Op -> Op . / Op
 
-    fpR             reduce using rule 31 (LqStr -> LqStr comma qStr .)
-    comma           reduce using rule 31 (LqStr -> LqStr comma qStr .)
+  ! shift/reduce conflict for + resolved as shift
+  ! shift/reduce conflict for - resolved as shift
+  ! shift/reduce conflict for * resolved as shift
+  ! shift/reduce conflict for / resolved as shift
+    doctype         reduce using rule 22 (Op -> Op * Op .)
+    $end            reduce using rule 22 (Op -> Op * Op .)
+    str             reduce using rule 22 (Op -> Op * Op .)
+    ppoint          reduce using rule 22 (Op -> Op * Op .)
+    }               reduce using rule 22 (Op -> Op * Op .)
+    .               reduce using rule 22 (Op -> Op * Op .)
+    hash            reduce using rule 22 (Op -> Op * Op .)
+    input           reduce using rule 22 (Op -> Op * Op .)
+    const           reduce using rule 22 (Op -> Op * Op .)
+    href            reduce using rule 22 (Op -> Op * Op .)
+    dSign           reduce using rule 22 (Op -> Op * Op .)
+    each            reduce using rule 22 (Op -> Op * Op .)
+    for             reduce using rule 22 (Op -> Op * Op .)
+    tab             reduce using rule 22 (Op -> Op * Op .)
+    +               shift and go to state 74
+    -               shift and go to state 75
+    *               shift and go to state 76
+    /               shift and go to state 77
+
+  ! +               [ reduce using rule 22 (Op -> Op * Op .) ]
+  ! -               [ reduce using rule 22 (Op -> Op * Op .) ]
+  ! *               [ reduce using rule 22 (Op -> Op * Op .) ]
+  ! /               [ reduce using rule 22 (Op -> Op * Op .) ]
 
 
 state 87
+
+    (23) Op -> Op / Op .
+    (20) Op -> Op . + Op
+    (21) Op -> Op . - Op
+    (22) Op -> Op . * Op
+    (23) Op -> Op . / Op
+
+  ! shift/reduce conflict for + resolved as shift
+  ! shift/reduce conflict for - resolved as shift
+  ! shift/reduce conflict for * resolved as shift
+  ! shift/reduce conflict for / resolved as shift
+    doctype         reduce using rule 23 (Op -> Op / Op .)
+    $end            reduce using rule 23 (Op -> Op / Op .)
+    str             reduce using rule 23 (Op -> Op / Op .)
+    ppoint          reduce using rule 23 (Op -> Op / Op .)
+    }               reduce using rule 23 (Op -> Op / Op .)
+    .               reduce using rule 23 (Op -> Op / Op .)
+    hash            reduce using rule 23 (Op -> Op / Op .)
+    input           reduce using rule 23 (Op -> Op / Op .)
+    const           reduce using rule 23 (Op -> Op / Op .)
+    href            reduce using rule 23 (Op -> Op / Op .)
+    dSign           reduce using rule 23 (Op -> Op / Op .)
+    each            reduce using rule 23 (Op -> Op / Op .)
+    for             reduce using rule 23 (Op -> Op / Op .)
+    tab             reduce using rule 23 (Op -> Op / Op .)
+    +               shift and go to state 74
+    -               shift and go to state 75
+    *               shift and go to state 76
+    /               shift and go to state 77
+
+  ! +               [ reduce using rule 23 (Op -> Op / Op .) ]
+  ! -               [ reduce using rule 23 (Op -> Op / Op .) ]
+  ! *               [ reduce using rule 23 (Op -> Op / Op .) ]
+  ! /               [ reduce using rule 23 (Op -> Op / Op .) ]
+
+
+state 88
+
+    (14) Command -> Indents str . str ( str equal str . fp
+
+    fp              shift and go to state 90
+
+
+state 89
+
+    (32) LqStr -> LqStr comma qStr .
+
+    fpR             reduce using rule 32 (LqStr -> LqStr comma qStr .)
+    comma           reduce using rule 32 (LqStr -> LqStr comma qStr .)
+
+
+state 90
 
     (14) Command -> Indents str . str ( str equal str fp .
 
@@ -1433,6 +1519,7 @@ state 87
     hash            reduce using rule 14 (Command -> Indents str . str ( str equal str fp .)
     input           reduce using rule 14 (Command -> Indents str . str ( str equal str fp .)
     const           reduce using rule 14 (Command -> Indents str . str ( str equal str fp .)
+    href            reduce using rule 14 (Command -> Indents str . str ( str equal str fp .)
     dSign           reduce using rule 14 (Command -> Indents str . str ( str equal str fp .)
     each            reduce using rule 14 (Command -> Indents str . str ( str equal str fp .)
     for             reduce using rule 14 (Command -> Indents str . str ( str equal str fp .)
@@ -1446,24 +1533,25 @@ WARNING: shift/reduce conflict for hash in state 6 resolved as shift
 WARNING: shift/reduce conflict for dSign in state 6 resolved as shift
 WARNING: shift/reduce conflict for str in state 6 resolved as shift
 WARNING: shift/reduce conflict for str in state 7 resolved as shift
-WARNING: shift/reduce conflict for str in state 24 resolved as shift
-WARNING: shift/reduce conflict for dSign in state 52 resolved as shift
-WARNING: shift/reduce conflict for str in state 52 resolved as shift
-WARNING: shift/reduce conflict for str in state 53 resolved as shift
-WARNING: shift/reduce conflict for str in state 66 resolved as shift
-WARNING: shift/reduce conflict for + in state 81 resolved as shift
-WARNING: shift/reduce conflict for - in state 81 resolved as shift
-WARNING: shift/reduce conflict for * in state 81 resolved as shift
-WARNING: shift/reduce conflict for / in state 81 resolved as shift
-WARNING: shift/reduce conflict for + in state 82 resolved as shift
-WARNING: shift/reduce conflict for - in state 82 resolved as shift
-WARNING: shift/reduce conflict for * in state 82 resolved as shift
-WARNING: shift/reduce conflict for / in state 82 resolved as shift
-WARNING: shift/reduce conflict for + in state 83 resolved as shift
-WARNING: shift/reduce conflict for - in state 83 resolved as shift
-WARNING: shift/reduce conflict for * in state 83 resolved as shift
-WARNING: shift/reduce conflict for / in state 83 resolved as shift
+WARNING: shift/reduce conflict for str in state 25 resolved as shift
+WARNING: shift/reduce conflict for str in state 49 resolved as shift
+WARNING: shift/reduce conflict for dSign in state 55 resolved as shift
+WARNING: shift/reduce conflict for str in state 55 resolved as shift
+WARNING: shift/reduce conflict for str in state 56 resolved as shift
+WARNING: shift/reduce conflict for str in state 69 resolved as shift
 WARNING: shift/reduce conflict for + in state 84 resolved as shift
 WARNING: shift/reduce conflict for - in state 84 resolved as shift
 WARNING: shift/reduce conflict for * in state 84 resolved as shift
 WARNING: shift/reduce conflict for / in state 84 resolved as shift
+WARNING: shift/reduce conflict for + in state 85 resolved as shift
+WARNING: shift/reduce conflict for - in state 85 resolved as shift
+WARNING: shift/reduce conflict for * in state 85 resolved as shift
+WARNING: shift/reduce conflict for / in state 85 resolved as shift
+WARNING: shift/reduce conflict for + in state 86 resolved as shift
+WARNING: shift/reduce conflict for - in state 86 resolved as shift
+WARNING: shift/reduce conflict for * in state 86 resolved as shift
+WARNING: shift/reduce conflict for / in state 86 resolved as shift
+WARNING: shift/reduce conflict for + in state 87 resolved as shift
+WARNING: shift/reduce conflict for - in state 87 resolved as shift
+WARNING: shift/reduce conflict for * in state 87 resolved as shift
+WARNING: shift/reduce conflict for / in state 87 resolved as shift
