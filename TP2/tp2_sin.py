@@ -39,8 +39,11 @@ def p_Command(p):
     return p
 
 
-def p_Command_point(p):
-    "Command : Indents ppoint"
+
+
+
+def p_Command_strpoint(p):
+    "Command : Indents str '.'"
     global html
     flag = True
     if parser.eachFlag:
@@ -57,10 +60,10 @@ def p_Command_point(p):
                 html = html + "\t" * it + "</" + dictionary[it] + ">\n"
                 dictionary.pop(it)
         if dictionary.keys().__contains__(p[1]):
-            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<p>\n"
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + ">\n"
         else:
-            html = html + "\t" * p[1] + "<p>\n"
-        dictionary[p[1]] = "p"
+            html = html + "\t" * p[1] + "<" + p[2] + ">\n"
+        dictionary[p[1]] = p[2]
         parser.inParagraph = True
         parser.paragraphLen = p[1]
     return p
@@ -94,8 +97,8 @@ def p_Command_pointClass(p):
     return p
 
 
-def p_Command_bracketsOpen(p):
-    "Command : Indents str '{'"
+def p_Command_ClassDotClass(p):
+    "Command : Indents str '.' str"
     global html
     flag = True
     if parser.eachFlag:
@@ -113,6 +116,32 @@ def p_Command_bracketsOpen(p):
                 dictionary.pop(it)
         if dictionary.keys().__contains__(p[1]):
             html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + " class=\"" + p[4] + "\">\n"
+            dictionary.pop(p[1])
+        else:
+            html = html + "\t" * p[1] + "<" + p[2] + " class=\"" + p[4] + "\">\n"
+        dictionary[p[1]] = p[2]
+    return p
+
+
+def p_Command_bracketsOpen(p):
+    "Command : Indents str '{'"
+    global html
+    flag = True
+    if parser.eachFlag:
+        writeEach()
+    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
+        html = html + '\t' * p[1] + p[2] + '{\n'
+        flag = False
+    elif p[1] <= parser.paragraphLen:
+        parser.inParagraph = False
+        parser.paragraphLen = 0
+    if flag:
+        for it in reversed(sorted(dictionary.keys())):
+            if it > p[1]:
+                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
+                dictionary.pop(it)
+        if dictionary.keys().__contains__(p[1]):
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + p[2] + "{\n"
             dictionary.pop(p[1])
         else:
             html = html + "\t" * p[1] + p[2] + "{\n"
@@ -137,34 +166,6 @@ def p_Command_bracketsClose(p):
         html = html + "\t" * p[1] + "}\n"
         parser.inParagraph = False
         parser.paragraphLen = 0
-    return p
-
-
-def p_Command_pointClassp(p):
-    "Command : Indents ppoint str '.'"
-    global html
-    flag = True
-    if parser.eachFlag:
-        writeEach()
-    if parser.inParagraph and int(p[1]) > parser.paragraphLen:
-        html = html + '\t' * p[1] + p[2] + '\n'
-        flag = False
-    elif p[1] <= parser.paragraphLen:
-        parser.inParagraph = False
-        parser.paragraphLen = 0
-    if flag:
-        for it in reversed(sorted(dictionary.keys())):
-            if it > p[1]:
-                html = html + "\t" * it + "</" + dictionary[it] + ">\n"
-                dictionary.pop(it)
-        if dictionary.keys().__contains__(p[1]):
-            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<p class=\"" + p[3] + "\">\n"
-            dictionary.pop(p[1])
-        else:
-            html = html + "\t" * p[1] + "<p class=\"" + p[3] + "\">\n"
-        dictionary[p[1]] = "p"
-        parser.inParagraph = True
-        parser.paragraphLen = p[1]
     return p
 
 
@@ -223,7 +224,7 @@ def p_Command_divHash(p):
 
 
 def p_Command_input(p):
-    "Command : Indents input Atribs fp"
+    "Command : Indents input Atribs ')'"
     global html
     flag = True
     if parser.eachFlag:
@@ -248,7 +249,7 @@ def p_Command_input(p):
 
 
 def p_Command_Atrib(p):
-    "Command : Indents str '(' Atrib fp"
+    "Command : Indents str '(' Atribs ')'"
     global html
     flag = True
     if parser.eachFlag:
@@ -265,15 +266,15 @@ def p_Command_Atrib(p):
                 html = html + "\t" * it + "</" + dictionary[it] + ">\n"
                 dictionary.pop(it)
         if dictionary.keys().__contains__(p[1]):
-            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<div " + p[4] + ">\n"
+            html = html + "\t" * p[1] + "</" + dictionary[p[1]] + ">\n" + "\t" * p[1] + "<" + p[2] + " " + p[4] + ">\n"
             dictionary.pop(p[1])
         else:
-            html = html + "\t" * p[1] + "<div " + p[4] + ">\n"
+            html = html + "\t" * p[1] + "<" + p[2] + " " + p[4] + ">\n"
     return p
 
 
 def p_Command_AtribStr(p):
-    "Command : Indents str '(' Atrib fp STR"
+    "Command : Indents str '(' Atribs ')' STR"
     global html
     flag = True
     if parser.eachFlag:
@@ -298,7 +299,7 @@ def p_Command_AtribStr(p):
 
 
 def p_Command_atribClass(p):
-    "Command : Indents str '.' str '(' str equal str fp"
+    "Command : Indents str '.' str '(' str '=' str ')'"
     global html
     flag = True
     if parser.eachFlag:
@@ -327,7 +328,7 @@ def p_Command_atribClass(p):
 
 
 def p_Command_list(p):
-    "Command : Indents const str equal apR LqStr fpR"
+    "Command : Indents const str '=' '[' LqStr ']'"
     global html
     flag = True
     if parser.eachFlag:
@@ -420,7 +421,7 @@ def p_Command_eachFor(p):
 
 
 def p_Command_CycleLine(p):
-    "Command : Indents dSign str equal Op"
+    "Command : Indents dSign str '=' Op"
     parser.eachVar.append(p[3])
     parser.each.append(p[5])
     parser.eachLen += 1
@@ -566,7 +567,7 @@ def p_eachFor_for(p):
 
 
 def p_Range_list(p):
-    "Range : apR STR fpR"
+    "Range : '[' STR ']'"
     range = p[2].split(",")
     i = 0
     for elem in range:
@@ -608,20 +609,8 @@ def p_Command_doctype(p):
     if p[2] == "html":
         parser.htmlFlag = True
         html = html + "<!DOCTYPE " + p[2] + ">\n"
-    if p[2] == "LaTeX":
-        parser.laTeXFlag = True
-        html = "\\documentclass[a4paper,12pt]\n\\usepackage[english]{babel}\n\\usepackage[utf8]{inputenc}\n\n\\pagestyle{headings}\n\n\\begin{document}"
-    return p
-
-
-# APAGAR!!
-def p_Command_doctypeLatexCommands(p):
-    "Command : doctype str size str language str"
-    global html
-    if p[2] == "LaTeX":
-        html = "\\documentclass[" + p[4] + "]\n\\usepackage[" + p[6] +"]{babel}\n\\usepackage[utf8]{inputenc}\n\n\\pagestyle{headings}\n\n\\begin{document}"
     else:
-        parser.validFileFormat = False
+        parser.succsess = False
     return p
 
 
@@ -650,13 +639,19 @@ def p_Atribs_single(p):
 
 
 def p_Atrib(p):
-    "Atrib : str equal qStr"
+    "Atrib : str '=' qStr"
+    p[0] = p[1] + "=" + p[3]
+    return p
+
+
+def p_Atrib_link(p):
+    "Atrib : str '=' link"
     p[0] = p[1] + "=" + p[3]
     return p
 
 
 def p_Atrib_str(p):
-    "Atrib : str equal str"
+    "Atrib : str '=' str"
     if htmlDict.__contains__(p[3]):
         p[0] = p[1] + "=" + htmlDict[p[3]]
     else:
@@ -666,6 +661,12 @@ def p_Atrib_str(p):
 
 def p_str(p):
     "STR : STR str"
+    p[0] = p[1] + " " + p[2]
+    return p
+
+
+def p_str_Atribs(p):
+    "STR : STR Atrib"
     p[0] = p[1] + " " + p[2]
     return p
 
@@ -684,6 +685,12 @@ def p_str_varDotVar(p):
 
 def p_str_single(p):
     "STR : str"
+    p[0] = p[1]
+    return p
+
+
+def p_str_attribute(p):
+    "STR : Atrib"
     p[0] = p[1]
     return p
 
@@ -738,11 +745,12 @@ def writeEach():
 parser = yacc.yacc()
 
 dictionary = {}
-htmlDict = {"1":"aaaa", "2":"bbbb", "3":"cccc"}
-htmlDict['myList'] = ['Ana', 'João', 'Luís', 'Rita']
+testsDict = {"1":"aaaa", "2":"bbbb", "3":"cccc"}
+testsDict['myList'] = ['Ana', 'João', 'Luís', 'Rita']
 html = ""
 
 import sys
+import yaml
 
 if sys.argv[1] == "-h":
     print(helpCommand())
@@ -751,10 +759,14 @@ file = open(sys.argv[1])
 if file == None:
     print("The file you selected can't be opened. Please check the problem")
 else:
+    if len(sys.argv) > 2:
+        with open(sys.argv[2]) as fileD:
+            htmlDict = yaml.load(fileD, Loader=yaml.FullLoader)
+    else:
+        htmlDict = testsDict
     parser.success = True
     parser.validFileFormat = True
     parser.htmlFlag = False
-    parser.laTeXFlag = False
     parser.inParagraph = False
     parser.paragraphLen = 0
     parser.each = False
@@ -771,8 +783,6 @@ else:
     parser.parse(program)
     if parser.htmlFlag:
         fileName = re.sub(r'(.*)\..*', r'\1.html', file.name)
-    elif parser.laTeXFlag:
-        fileName = re.sub(r'(.*)\..*', r'\1.tex', file.name)
     if parser.validFileFormat == False:
         print("Error: Invalid File Format. Please check the help options with -h")
     elif parser.success:
@@ -782,6 +792,6 @@ else:
     for item in reversed(sorted(dictionary.keys())):
         html = html + "\t" * item + "</" + dictionary[item] + ">\n"
         dictionary.pop(item)
-    endFile = open(fileName, "w")
+    endFile = open(fileName, "w", encoding='utf-8')
     endFile.write(html)
 

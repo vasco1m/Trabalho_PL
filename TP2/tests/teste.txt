@@ -1,0 +1,10 @@
+doctype html
+html
+	head
+		link(rel="stylesheet" href="style.css")
+		style.
+			p{
+				color: red;
+				text-decoration: underlined;
+			}
+		h1 Title
